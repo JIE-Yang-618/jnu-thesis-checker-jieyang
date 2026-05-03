@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>暨南大学研究生毕业论文格式与写作规范自查工具</title>
+  <style>
+    :root {
+      --bg: #f6f7fb; --card: #ffffff; --ink: #202536; --muted: #647084; --line: #e5e7ef;
+      --primary: #2563eb; --primary-soft: #eaf1ff; --ok: #16a34a; --warn: #f59e0b; --bad: #dc2626;
+      --shadow: 0 18px 45px rgba(31, 41, 55, 0.08); --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: linear-gradient(180deg, #eff4ff 0%, var(--bg) 240px); color: var(--ink); }
+    a { color: var(--primary); }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 18px 56px; }
+    header { display: grid; grid-template-columns: 1.5fr 0.9fr; gap: 20px; align-items: stretch; margin-bottom: 18px; }
+    .hero, .panel, .checklist, .guide-card, .auto-check { background: rgba(255,255,255,0.92); border: 1px solid rgba(226,232,240,0.85); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .hero { padding: 28px; }
+    .hero h1 { margin: 0 0 10px; font-size: clamp(26px, 4vw, 42px); line-height: 1.08; letter-spacing: -0.04em; }
+    .hero p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
+    .byline { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; color: #334155; font-size: 14px; font-weight: 650; }
+    .language-switch { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 650; }
+    .language-switch select { min-height: 34px; padding: 5px 10px; border-radius: 999px; font-size: 13px; }
+    .source-note { margin-top: 12px; padding: 12px 14px; border: 1px solid #dbeafe; border-radius: 14px; background: #f8fbff; color: #475569; font-size: 14px; line-height: 1.7; }
+    .disclaimer { margin-top: 10px; color: #7c2d12; font-size: 13px; line-height: 1.7; }
+    .stats { display: grid; gap: 12px; padding: 18px; }
+    .stat-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+    .stat-card .num { font-size: 30px; font-weight: 800; letter-spacing: -0.04em; }
+    .stat-card .label { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    .progress { height: 10px; background: #e9edf6; border-radius: 999px; overflow: hidden; margin-top: 10px; }
+    .progress > span { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), #60a5fa); transition: width .25s ease; }
+    .toolbar { display: grid; grid-template-columns: 1.1fr 0.7fr 0.7fr auto auto auto; gap: 10px; align-items: center; margin: 18px 0; }
+    input, select, textarea, button { font: inherit; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    input, select { padding: 11px 12px; min-height: 44px; }
+    button { min-height: 44px; padding: 10px 14px; cursor: pointer; font-weight: 650; color: var(--ink); transition: transform .12s ease, box-shadow .12s ease, background .12s ease; }
+    button:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.06); }
+    .primary { background: var(--primary); color: white; border-color: var(--primary); }
+    .danger { color: var(--bad); }
+    .auto-check { margin: 18px 0; overflow: hidden; }
+    .auto-body { padding: 18px; display: grid; gap: 16px; }
+    .auto-title { padding: 18px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .auto-title h2 { margin: 0 0 6px; font-size: 20px; }
+    .auto-title p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .upload-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+    .upload-card { border: 1px solid var(--line); border-radius: 16px; background: #fbfcff; padding: 14px; display: grid; gap: 10px; }
+    .upload-card label { font-weight: 750; }
+    .upload-card small, .privacy-tip { color: var(--muted); line-height: 1.65; }
+    .tex-input { min-height: 145px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .auto-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .auto-message { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .auto-overview { border: 1px solid #bfdbfe; border-radius: 16px; background: #f8fbff; padding: 14px; display: grid; gap: 10px; }
+    .auto-overview h3 { margin: 0; font-size: 16px; }
+    .auto-overview p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .action-list { margin: 0; padding-left: 18px; color: #334155; line-height: 1.75; font-size: 14px; }
+    .action-list li::marker { color: var(--bad); }
+    .risk-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .risk-card { border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: #fff; }
+    .risk-card strong { display: block; font-size: 24px; letter-spacing: -0.03em; }
+    .risk-card span { color: var(--muted); font-size: 13px; }
+    .result-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-chip { min-height: 34px; padding: 7px 10px; border-radius: 999px; font-size: 13px; color: var(--muted); }
+    .filter-chip.active { color: var(--primary); background: var(--primary-soft); border-color: #bcd3ff; }
+    .auto-results { display: grid; gap: 10px; }
+    .result-item { border: 1px solid var(--line); border-radius: 16px; padding: 14px; background: #fff; display: grid; gap: 8px; }
+    .result-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+    .result-head h4 { margin: 0; font-size: 15px; }
+    .status-tag, .risk-tag { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 9px; font-size: 12px; font-weight: 750; border: 1px solid var(--line); background: #fff; }
+    .status-detected { color: var(--ok); border-color: #bbf7d0; background: #ecfdf5; }
+    .status-missing, .risk-high { color: var(--bad); border-color: #fecaca; background: #fff1f2; }
+    .status-review, .risk-mid { color: #b45309; border-color: #fde68a; background: #fffbeb; }
+    .status-na, .risk-low { color: #475569; border-color: #cbd5e1; background: #f8fafc; }
+    .result-item p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .evidence { color: #334155; background: #f8fafc; border-radius: 10px; padding: 8px 10px; font-size: 13px; line-height: 1.6; }
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 16px; }
+    .tab { border: 1px solid var(--line); background: #fff; color: var(--muted); padding: 9px 12px; border-radius: 999px; cursor: pointer; font-weight: 650; }
+    .tab.active { background: var(--primary-soft); border-color: #bcd3ff; color: var(--primary); }
+    .layout { display: grid; grid-template-columns: 1fr 330px; gap: 18px; align-items: start; }
+    .checklist { overflow: hidden; }
+    .section-title { position: sticky; top: 0; background: rgba(255,255,255,.95); backdrop-filter: blur(8px); z-index: 2; padding: 16px 18px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .section-title h2 { margin: 0; font-size: 18px; }
+    .item { padding: 16px 18px; border-bottom: 1px solid var(--line); display: grid; gap: 12px; }
+    .item:last-child { border-bottom: none; }
+    .item-top { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start; }
+    .badge { display: inline-flex; align-items: center; justify-content: center; min-width: 30px; height: 30px; border-radius: 999px; font-size: 13px; font-weight: 800; background: var(--primary-soft); color: var(--primary); }
+    .text { line-height: 1.7; }
+    .meta { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 12px; }
+    .priority { padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line); background: #fff; white-space: nowrap; }
+    .priority.high { color: var(--bad); border-color: #fecaca; background: #fff1f2; }
+    .priority.mid { color: #b45309; border-color: #fde68a; background: #fffbeb; }
+    .status-row { display: grid; grid-template-columns: repeat(4, max-content) 1fr; gap: 9px; align-items: center; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 999px; border: 1px solid var(--line); background: #fff; cursor: pointer; color: var(--muted); font-weight: 650; font-size: 13px; user-select: none; }
+    .pill input { display: none; }
+    .pill.active.ok { background: #ecfdf5; color: var(--ok); border-color: #bbf7d0; }
+    .pill.active.fix { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+    .pill.active.na { background: #f8fafc; color: #475569; border-color: #cbd5e1; }
+    textarea { width: 100%; min-height: 42px; padding: 9px 10px; resize: vertical; background: #fbfcff; }
+    .side { display: grid; gap: 16px; position: sticky; top: 14px; }
+    .panel { padding: 16px; }
+    .panel h3 { margin: 0 0 10px; font-size: 16px; }
+    .mini-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    .mini-list li { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 13px; }
+    .mini-list b { color: var(--ink); }
+    .bar { height: 8px; background: #eef2f7; border-radius: 999px; overflow: hidden; margin-top: 4px; }
+    .bar span { display: block; height: 100%; background: var(--primary); width: 0%; }
+    .guide { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .guide-card { padding: 16px; }
+    .guide-card h3 { margin: 0 0 8px; font-size: 16px; }
+    .guide-card ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .empty { padding: 36px 18px; text-align: center; color: var(--muted); }
+    footer { color: var(--muted); font-size: 13px; line-height: 1.7; text-align: center; padding: 28px 0 0; }
+    .footer-logo { width: 84px; height: auto; display: block; margin: 0 auto 10px; opacity: 0.9; }
+    @media (max-width: 900px) { header, .layout, .guide, .upload-grid, .risk-summary { grid-template-columns: 1fr; } .toolbar { grid-template-columns: 1fr 1fr; } .toolbar button { width: 100%; } .side { position: static; } .status-row { grid-template-columns: 1fr 1fr; } .status-row textarea { grid-column: 1 / -1; } }
+    @media print { body { background: #fff; } .toolbar, .tabs, .side, footer { display: none !important; } header { grid-template-columns: 1fr; } .hero, .checklist, .guide-card, .auto-check { box-shadow: none; border-color: #ddd; } .item, .result-item { break-inside: avoid; } .wrap { padding: 0; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <section class="hero">
+        <h1 id="heroTitle">暨南大学研究生毕业论文格式与写作规范自查工具</h1>
+        <p id="heroIntro">面向暨南大学研究生毕业论文写作规范的自查辅助工具，支持手动 checklist 与本地文件自动初检，适合在论文提交前系统核对格式、结构、实证规范、参考文献和终检事项。</p>
+        <div class="source-note" id="sourceNote">本工具基于暨南大学研究生毕业论文写作与格式规范，并结合研究生论文写作中的常见格式、结构与实证规范问题整理而成，旨在帮助同学们在论文提交前进行系统化自查。</div>
+        <div class="byline"><span id="authorLine">By 杨杰（Jie Yang）</span><span>Contact: jieyang020618@gmail.com</span><label class="language-switch"><span id="languageLabel">Language</span><select id="languageSelect" aria-label="Language"><option value="zh">中文</option><option value="en">English</option></select></label></div>
+        <div class="disclaimer" id="disclaimer">本工具为自查辅助工具，不是暨南大学官方审核系统；检测结果仅供修改参考，最终仍需以学校/学院正式论文规范和导师意见为准。</div>
+      </section>
+      <aside class="stats panel" aria-label="总体进度"><div class="stat-card"><div class="num"><span id="overallPct">0</span>%</div><div class="label" id="overallLabel">总体通过率（不含“不适用”）</div><div class="progress"><span id="overallBar"></span></div></div><div class="stat-card"><div class="num"><span id="fixCount">0</span></div><div class="label" id="fixCountLabel">仍需修改项</div></div></aside>
+    </header>
+    <section class="auto-check" aria-label="上传论文文件进行自动初检">
+      <div class="auto-title">
+        <div>
+          <h2 id="autoTitle">上传论文文件进行自动初检</h2>
+          <p id="autoIntro">支持 DOCX、PDF、TEX 文件或直接粘贴 LaTeX 源代码。自动检测采用“规则识别 + 风险提示”，不会直接改动手动 checklist 勾选状态。</p>
+        </div>
+      </div>
+      <div class="auto-body">
+        <div class="upload-grid">
+          <div class="upload-card">
+            <label for="paperFile" id="uploadLabel">上传论文文件（.docx / .doc / .pdf / .tex）</label>
+            <input id="paperFile" type="file" accept=".docx,.doc,.pdf,.tex,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+            <small id="docTip">老式 .doc 二进制格式在纯前端网页中解析能力有限，建议先转换为 .docx 或 PDF 后再上传。文件超过 20MB 时解析可能较慢。</small>
+          </div>
+          <div class="upload-card">
+            <label for="latexInput" id="latexLabel">或粘贴 LaTeX 源代码</label>
+            <textarea id="latexInput" class="tex-input" placeholder="可在此粘贴 .tex 源码。若同时上传文件，将优先使用上传文件。"></textarea>
+            <small id="latexTip">LaTeX 检查会识别 documentclass、geometry、fontspec / xeCJK、摘要、图表、公式、引用和参考文献等常见命令。</small>
+          </div>
+        </div>
+        <div class="auto-actions">
+          <button class="primary" id="autoCheckBtn">开始自动检查</button>
+          <button id="clearFileBtn">清空文件</button>
+          <button id="autoExportBtn">导出报告</button>
+          <button id="autoPrintBtn">打印 / 保存 PDF</button>
+          <span class="privacy-tip" id="privacyTip">文件仅在本地浏览器中解析，不会上传服务器，也不会把论文全文保存到 localStorage。</span>
+        </div>
+        <div id="autoMessage" class="auto-message">请选择文件或粘贴 LaTeX 源代码后开始检查。</div>
+        <div id="autoOverview" class="auto-overview" hidden></div>
+        <div id="autoSummary" class="risk-summary" hidden></div>
+        <div id="resultFilters" class="result-filters" hidden></div>
+        <div id="autoResults" class="auto-results"></div>
+      </div>
+    </section>
+    <div class="toolbar" role="search"><input id="searchInput" type="search" placeholder="搜索：如 页码 / 三线表 / 聚类标准误 / 摘要" /><select id="statusFilter" title="按状态筛选"><option value="all">全部状态</option><option value="ok">已通过</option><option value="fix">需修改</option><option value="na">不适用</option><option value="blank">未检查</option></select><select id="priorityFilter" title="按风险等级筛选"><option value="all">全部风险</option><option value="高">高风险</option><option value="中">中风险</option><option value="普通">普通</option></select><button class="primary" id="exportBtn">导出报告</button><button id="printBtn">打印 / 保存 PDF</button><button class="danger" id="resetBtn">清空记录</button></div>
+    <nav id="tabs" class="tabs" aria-label="核查板块"></nav>
+    <main class="layout"><section class="checklist" aria-label="手动自查清单"><div class="section-title"><h2 id="currentSectionTitle">全部核查项</h2><span class="meta"><span id="shownCount">0</span> 项显示</span></div><div id="items"></div></section><aside class="side"><section class="panel"><h3>板块完成度</h3><ul id="sectionProgress" class="mini-list"></ul></section><section class="panel"><h3>定稿前优先看这几项</h3><ul class="mini-list"><li><span>目录、页码、标题</span><b>必须同步</b></li><li><span>图表编号与图表注释</span><b>不能断号</b></li><li><span>数据来源与样本筛选</span><b>要可复现</b></li><li><span>固定效应与聚类标准误</span><b>表注标明</b></li><li><span>正文引用与参考文献</span><b>一一对应</b></li></ul></section><section class="panel"><h3>使用建议</h3><p style="color:var(--muted);line-height:1.75;margin:0;font-size:14px;">第一次检查先把明显问题标为“需修改”；修改后再逐项改成“已通过”。导出的 Markdown 报告可作为论文修改记录。自动检查结果仅作为建议状态，不会覆盖这里的人工勾选。</p></section></aside></main>
+    <section id="guides" class="guide" aria-label="写作提示"></section>
+    <footer>
+      <img class="footer-logo" src="jnu_logo.png" alt="Jinan University Logo" />
+      <div id="footerDesc">面向暨南大学研究生毕业论文写作规范的自查辅助工具。This tool is designed as a self-check aid for academic writing and formatting.</div>
+      <div>工具设计、内容整理与维护：杨杰（Jie Yang）｜Contact: jieyang020618@gmail.com</div>
+      <div>© 2026 杨杰 Jie Yang. All rights reserved.</div>
+    </footer>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script>
+// 维护说明：本项目当前不提供页面内规则编辑入口；检查规则由作者维护。
+// 普通用户只能使用自查、文件本地初检和报告导出功能，不能在页面中直接修改底层 CHECKLIST 数据或检测逻辑。
+// 如未来增加管理模式，本地访问密钥也只能作为防误操作机制，不能替代 GitHub 仓库权限、分支保护或协作者权限控制。
+const CHECKLIST = [
+  {
+    "id": 1,
+    "section": "全文格式规范",
+    "text": "正文所有中文字体统一为宋体，全文数字、英文字母、英文符号、公式变量统一为Times New Roman",
+    "priority": "高"
+  },
+  {
+    "id": 2,
+    "section": "全文格式规范",
+    "text": "各级标题字号、加粗、缩进格式全文统一，层级清晰，严格区分一、二、三级标题格式，无混乱",
+    "priority": "中"
+  },
+  {
+    "id": 3,
+    "section": "全文格式规范",
+    "text": "全文行间距、段前段后间距、页边距完全统一，遵循学校论文模板要求",
+    "priority": "中"
+  },
+  {
+    "id": 4,
+    "section": "全文格式规范",
+    "text": "页码、页眉、页脚格式规范，目录自动生成，目录章节、页码与正文完全对应",
+    "priority": "高"
+  },
+  {
+    "id": 5,
+    "section": "全文格式规范",
+    "text": "所有表格采用三线表格式，无多余竖线、杂线",
+    "priority": "中"
+  },
+  {
+    "id": 6,
+    "section": "全文格式规范",
+    "text": "图表编号规范：按章节排序（表1-1、图2-1），无断号、重号。表题在上，图题在下",
+    "priority": "高"
+  },
+  {
+    "id": 7,
+    "section": "全文格式规范",
+    "text": "所有公式居中对齐、带章节编号",
+    "priority": "高"
+  },
+  {
+    "id": 8,
+    "section": "全文格式规范",
+    "text": "全文标点符号统一，中文用全角、英文及数字用半角",
+    "priority": "中"
+  },
+  {
+    "id": 9,
+    "section": "全文格式规范",
+    "text": "专业术语、变量名称全文统一，无前后更名、表述不一致问题",
+    "priority": "中"
+  },
+  {
+    "id": 10,
+    "section": "全文格式规范",
+    "text": "全文无错别字、病句、语句不通顺、口语化表述，无网络用语、主观情绪化表述",
+    "priority": "普通"
+  },
+  {
+    "id": 11,
+    "section": "全文格式规范",
+    "text": "整体排版整洁，无空白页、大片空行、图文错位情况",
+    "priority": "普通"
+  },
+  {
+    "id": 12,
+    "section": "参考文献 / 与引用规范",
+    "text": "全文引用格式统一，统一采用APA或GB/T 7714国标，无混用，优先遵循学校指定格式",
+    "priority": "高"
+  },
+  {
+    "id": 13,
+    "section": "参考文献 / 与引用规范",
+    "text": "参考文献分类规整，中外文献分开，根据作者名称排序",
+    "priority": "高"
+  },
+  {
+    "id": 14,
+    "section": "参考文献 / 与引用规范",
+    "text": "无重复收录同一篇文献、无虚假引用、无失效文献，剔除无效、无法溯源文献",
+    "priority": "高"
+  },
+  {
+    "id": 15,
+    "section": "参考文献 / 与引用规范",
+    "text": "近5年核心期刊、高被引文献占比充足，文献时效性良好，避免大量堆砌老旧文献",
+    "priority": "普通"
+  },
+  {
+    "id": 16,
+    "section": "参考文献 / 与引用规范",
+    "text": "所有引用文献均在正文对应位置标注，无参考文献悬空情况",
+    "priority": "高"
+  },
+  {
+    "id": 17,
+    "section": "章节内容质量",
+    "text": "摘要完整包含背景、问题、方法、结果、结论、创新点，无冗余废话，字数控制在一页的2/3左右",
+    "priority": "中"
+  },
+  {
+    "id": 18,
+    "section": "章节内容质量",
+    "text": "创新点具体落地，不空泛，不夸大，避免写“目前鲜少有文献探究xxx”这类表述",
+    "priority": "中"
+  },
+  {
+    "id": 19,
+    "section": "章节内容质量",
+    "text": "文献回顾按主题分类梳理，非作者流水账，有明确文献述评，明确指出现有研究空白",
+    "priority": "中"
+  },
+  {
+    "id": 20,
+    "section": "章节内容质量",
+    "text": "理论机制分析逻辑连贯，层层递进，研究假设表述规范严谨，假设均有理论支撑，无主观臆断",
+    "priority": "中"
+  },
+  {
+    "id": 21,
+    "section": "章节内容质量",
+    "text": "研究设计完整：样本区间、筛选标准、数据来源、指标定义（所有变量标注计算方式）、模型设定齐全",
+    "priority": "高"
+  },
+  {
+    "id": 22,
+    "section": "章节内容质量",
+    "text": "实证分析各环节完整：描述性统计、相关性、基准回归、稳健性、异质性分析（进行组间差异检验时是否有说明使用的检验方法）、机制检验",
+    "priority": "普通"
+  },
+  {
+    "id": 23,
+    "section": "章节内容质量",
+    "text": "所有图表均有对应文字分析，不单独罗列数据、只表不析，应解读数据具体经济含义",
+    "priority": "中"
+  },
+  {
+    "id": 24,
+    "section": "章节内容质量",
+    "text": "结论不照搬摘要与实证结果，经过归纳提炼，层次清晰",
+    "priority": "中"
+  },
+  {
+    "id": 25,
+    "section": "章节内容质量",
+    "text": "政策建议贴合研究结论，针对性强，无空泛套话，尽量避免使用过多长句，增强可读性，多维度撰写",
+    "priority": "中"
+  },
+  {
+    "id": 26,
+    "section": "章节内容质量",
+    "text": "全文章节逻辑闭环，前后呼应，无逻辑矛盾、内容断层",
+    "priority": "中"
+  },
+  {
+    "id": 27,
+    "section": "数据处理 / 与实证规范",
+    "text": "明确写明数据来源数据库、样本区间、数据获取方式",
+    "priority": "高"
+  },
+  {
+    "id": 28,
+    "section": "数据处理 / 与实证规范",
+    "text": "样本筛选标准清晰：剔除金融行业、ST股、上市当年样本等",
+    "priority": "高"
+  },
+  {
+    "id": 29,
+    "section": "数据处理 / 与实证规范",
+    "text": "完成异常值处理：若进行了缩尾处理，应明确写入论文",
+    "priority": "高"
+  },
+  {
+    "id": 30,
+    "section": "数据处理 / 与实证规范",
+    "text": "所有回归表格使用变量符号，中文释义统一放在表格下方注释，表格内不堆砌中文名称",
+    "priority": "普通"
+  },
+  {
+    "id": 31,
+    "section": "数据处理 / 与实证规范",
+    "text": "回归标准误做聚类处理（聚类至企业/行业/年份），表格注释标注，这是实证核心规范，必须标注",
+    "priority": "高"
+  },
+  {
+    "id": 32,
+    "section": "数据处理 / 与实证规范",
+    "text": "明确标注固定效应类型（年份/行业/个体固定效应）",
+    "priority": "高"
+  },
+  {
+    "id": 33,
+    "section": "数据处理 / 与实证规范",
+    "text": "汇报完整回归结果：系数、标准误、t值、R²、观测值数量",
+    "priority": "高"
+  },
+  {
+    "id": 34,
+    "section": "数据处理 / 与实证规范",
+    "text": "完成多重共线性检验（VIF），无严重多重共线性问题（VIF均值小于10为合格）",
+    "priority": "高"
+  },
+  {
+    "id": 35,
+    "section": "数据处理 / 与实证规范",
+    "text": "稳健性检验方法多样有效（替换变量、缩尾、调整样本、工具变量等）",
+    "priority": "高"
+  },
+  {
+    "id": 36,
+    "section": "数据处理 / 与实证规范",
+    "text": "异质性/机制检验逻辑对应前文研究假设，无脱节",
+    "priority": "普通"
+  },
+  {
+    "id": 37,
+    "section": "数据处理 / 与实证规范",
+    "text": "留存完整数据处理代码或do文件，数据结果可复现，避免结果无法溯源",
+    "priority": "高"
+  },
+  {
+    "id": 38,
+    "section": "数据处理 / 与实证规范",
+    "text": "自建变量、指标计算口径清晰，有文献支撑或理论依据",
+    "priority": "普通"
+  },
+  {
+    "id": 39,
+    "section": "定稿终检",
+    "text": "全文查重率符合学校要求，无大面积重复、无AI堆砌痕迹，语句自然流畅",
+    "priority": "高"
+  },
+  {
+    "id": 40,
+    "section": "定稿终检",
+    "text": "所有章节、图表、公式、引用无遗漏、无错误",
+    "priority": "高"
+  },
+  {
+    "id": 41,
+    "section": "定稿终检",
+    "text": "整体符合学校毕业论文格式模板与字数要求",
+    "priority": "高"
+  }
+];
+const SECTIONS = ["全文格式规范", "参考文献 / 与引用规范", "章节内容质量", "数据处理 / 与实证规范", "定稿终检"];
+const GUIDES = [
+  {
+    "title": "摘要",
+    "points": [
+      "建议按“研究背景与动机 → 核心方法 → 主要结论 → 理论与现实意义”组织。",
+      "摘要、正文结论和最新回归结果必须同步，避免旧版本结论残留。",
+      "避免过度宣称“尚未有文献研究”，可改为“拓展了相关文献”或“丰富了研究框架”。",
+      "篇幅可控制在页面的约 2/3，必要时分两段。"
+    ]
+  },
+  {
+    "title": "目录",
+    "points": [
+      "目录应在定稿前重新生成，确保标题与页码和正文完全一致。",
+      "通常保留一级、二级标题即可，层级过深会显得结构杂乱。",
+      "大型章节的小节数量要克制，避免把同一层级拆得过碎。"
+    ]
+  },
+  {
+    "title": "绪论 / 引言",
+    "points": [
+      "研究背景要紧扣主题，说明为什么这个问题值得研究。",
+      "可从现实事件或政策背景进入，再过渡到学术研究缺口。",
+      "研究意义可分为理论意义和现实意义，但不要写成空泛口号。"
+    ]
+  },
+  {
+    "title": "文献综述",
+    "points": [
+      "按主题、变量、机制或方法分类梳理，避免“作者流水账”。",
+      "文献综述最后要有文献评述，说明已有研究贡献、不足与本文切入点。",
+      "中文和英文文献的关系要处理清楚，不能只是堆砌引用。"
+    ]
+  },
+  {
+    "title": "理论基础与研究假设",
+    "points": [
+      "每个假设都应有理论或文献支撑，不能直接主观判断。",
+      "如果没有强因果识别，假设表述应避免过度因果化，可用“相关”“影响”但要谨慎。",
+      "假设推导要区别于文献综述，重点是从理论机制推出可检验命题。"
+    ]
+  },
+  {
+    "title": "变量与模型设定",
+    "points": [
+      "数据来源、样本区间、筛选标准和变量计算口径必须写清楚。",
+      "自建指标或替代变量要有文献依据或理论依据。",
+      "描述性统计不能只放表格，还要解释均值、波动性、偏度、峰度等特征。"
+    ]
+  },
+  {
+    "title": "实证分析",
+    "points": [
+      "基准模型要说明变量是否滞后、固定效应类型、标准误聚类方式。",
+      "回归结果要解释核心变量系数的经济含义，而不只是说显著不显著。",
+      "异质性分析应说明分组依据，机制检验要和前文理论逻辑对应。",
+      "稳健性检验可包括替换变量、调整样本、替换模型、改变固定效应等。"
+    ]
+  },
+  {
+    "title": "结论与政策建议",
+    "points": [
+      "结论应是对全文发现的归纳，不要简单复制摘要或回归结果。",
+      "政策建议要贴合实证发现，避免写得像宏大政策文件。",
+      "建议篇幅控制在 1–2 页左右，层次清楚即可。"
+    ]
+  },
+  {
+    "title": "参考文献",
+    "points": [
+      "参考文献格式全文统一，APA 或 GB/T 7714 不要混用。",
+      "正文引注与文后参考文献必须一一对应，避免“正文没引但文末有”或“正文引了但文末缺”。",
+      "注意去除重复、失效、无法溯源的文献。"
+    ]
+  }
+];
+const STORAGE_KEY = 'paper-format-checker-v1';
+const MAX_FILE_SIZE = 20 * 1024 * 1024;
+let activeSection = '全部';
+let state = loadState();
+let autoReport = null;
+let autoFilter = 'all';
+let currentLang = 'zh';
+
+const I18N = {
+  zh: {
+    pageTitle: '暨南大学研究生毕业论文格式与写作规范自查工具',
+    heroIntro: '面向暨南大学研究生毕业论文写作规范的自查辅助工具，支持手动 checklist 与本地文件自动初检，适合在论文提交前系统核对格式、结构、实证规范、参考文献和终检事项。',
+    sourceNote: '本工具基于暨南大学研究生毕业论文写作与格式规范，并结合研究生论文写作中的常见格式、结构与实证规范问题整理而成，旨在帮助同学们在论文提交前进行系统化自查。',
+    disclaimer: '本工具为自查辅助工具，不是暨南大学官方审核系统；检测结果仅供修改参考，最终仍需以学校/学院正式论文规范和导师意见为准。',
+    language: 'Language',
+    overallLabel: '总体通过率（不含“不适用”）',
+    fixCountLabel: '仍需修改项',
+    autoOverallLabel: '自动初检通过率（规则识别）',
+    autoFixCountLabel: '自动建议修改项',
+    autoTitle: '上传论文文件进行自动初检',
+    autoIntro: '支持 DOCX、PDF、TEX 文件或直接粘贴 LaTeX 源代码。自动检测采用“规则识别 + 风险提示”，不会直接改动手动 checklist 勾选状态。',
+    uploadLabel: '上传论文文件（.docx / .doc / .pdf / .tex）',
+    docTip: '老式 .doc 二进制格式在纯前端网页中解析能力有限，建议先转换为 .docx 或 PDF 后再上传。文件超过 20MB 时解析可能较慢。',
+    latexLabel: '或粘贴 LaTeX 源代码',
+    latexTip: 'LaTeX 检查会识别 documentclass、geometry、fontspec / xeCJK、摘要、图表、公式、引用和参考文献等常见命令。',
+    latexPlaceholder: '可在此粘贴 .tex 源码。若同时上传文件，将优先使用上传文件。',
+    autoButton: '开始自动检查',
+    clearButton: '清空文件',
+    autoExportButton: '导出报告',
+    autoPrintButton: '打印 / 保存 PDF',
+    privacyTip: '文件仅在本地浏览器中解析，不会上传服务器，也不会把论文全文保存到 localStorage。',
+    autoInitial: '请选择文件或粘贴 LaTeX 源代码后开始检查。',
+    searchPlaceholder: '搜索：如 页码 / 三线表 / 聚类标准误 / 摘要',
+    exportButton: '导出报告',
+    printButton: '打印 / 保存 PDF',
+    resetButton: '清空记录',
+    allStatus: '全部状态',
+    allRisk: '全部风险',
+    all: '全部',
+    allItems: '全部核查项',
+    shownSuffix: ' 项显示',
+    noMatches: '没有匹配的核查项。可以换一个关键词或取消筛选。',
+    notePlaceholder: '可写修改备注：如 页码未更新 / 表注缺聚类标准误 / 摘要结论需同步',
+    riskSuffix: '风险',
+    confirmReset: '确定要清空所有勾选和备注吗？',
+    parsing: '正在本地解析文件，请稍候...',
+    pastedLatex: '粘贴的 LaTeX 源代码',
+    autoDonePrefix: '已完成本地自动初检：',
+    autoDoneSuffix: '。检测结果为规则提示，不代表正式审核结论。',
+    autoErrorFallback: '自动检查过程中出现异常，请更换文件格式后重试。',
+    footerDesc: '面向暨南大学研究生毕业论文写作规范的自查辅助工具。This tool is designed as a self-check aid for academic writing and formatting.',
+    summaryLabels: ['通过或低风险项', '风险项', '需人工确认项', '检查项总数'],
+    autoOverviewTitle: '自动初检总体结论',
+    autoOverviewIntro: '系统已根据可提取文本进行规则化初检。以下通过率和修改项仅供论文修改参考，不代表正式审核结论。',
+    autoPassRateLabel: '自动初检通过率',
+    autoNeedsTitle: '建议优先修改或核对',
+    autoNoNeeds: '暂未检测到明确的高风险缺失项；仍建议人工核对页码、字体字号、页边距、图表位置等排版细节。',
+    autoNeedPrefix: '需要关注',
+    autoReviewLabel: '需要人工确认',
+    autoTopUpdated: '页面顶部已同步显示自动初检通过率和自动建议修改项数量。',
+    filterLabels: {all:'全部', high:'高风险', mid:'中风险', low:'低风险', review:'需人工确认'},
+    statusLabels: {detected:'已检测到 / 可能符合', missing:'未检测到 / 可能缺失', review:'需要人工确认', na:'不适用或无法判断'},
+    manualStatus: {ok:'已通过', fix:'需修改', na:'不适用', '':'未检查'},
+    priority: {'高':'高', '中':'中', '低':'低', '普通':'普通'},
+    resultEvidence: '检测依据：',
+    resultSuggestion: '修改建议：',
+    warningPrefix: '提示：',
+    sectionProgressTitle: '板块完成度',
+    sections: {}
+  },
+  en: {
+    pageTitle: 'Jinan University Graduate Thesis Format and Writing Self-Check Tool',
+    heroIntro: 'A self-check aid for Jinan University graduate thesis writing standards, with a manual checklist and local file pre-checks before submission.',
+    sourceNote: 'This tool is based on Jinan University graduate thesis writing and formatting standards, and summarizes common formatting, structure, and empirical-writing risks for pre-submission self-checks.',
+    disclaimer: 'This is a self-check aid, not an official university review system. Results are for revision reference only; final requirements should follow official school/college rules and supervisor guidance.',
+    language: 'Language',
+    overallLabel: 'Overall pass rate (excluding N/A)',
+    fixCountLabel: 'Items needing revision',
+    autoOverallLabel: 'Auto-check pass rate (rule-based)',
+    autoFixCountLabel: 'Auto-suggested revisions',
+    autoTitle: 'Upload Thesis File for Initial Auto Check',
+    autoIntro: 'Supports DOCX, PDF, TEX files, or pasted LaTeX source. Checks use rule matching plus risk prompts and do not overwrite the manual checklist.',
+    uploadLabel: 'Upload thesis file (.docx / .doc / .pdf / .tex)',
+    docTip: 'Legacy .doc binary files have limited support in a pure front-end page. Please convert to .docx or PDF first. Files over 20 MB may parse slowly.',
+    latexLabel: 'Or paste LaTeX source',
+    latexTip: 'LaTeX checks look for common commands such as documentclass, geometry, fontspec / xeCJK, abstract, figures, tables, equations, citations, and bibliography.',
+    latexPlaceholder: 'Paste .tex source here. If a file is uploaded, the uploaded file is used first.',
+    autoButton: 'Start Auto Check',
+    clearButton: 'Clear File',
+    autoExportButton: 'Export Report',
+    autoPrintButton: 'Print / Save PDF',
+    privacyTip: 'Files are parsed only in the local browser. Nothing is uploaded, and full thesis text is not saved to localStorage.',
+    autoInitial: 'Upload a file or paste LaTeX source to start checking.',
+    searchPlaceholder: 'Search: page number / three-line table / clustered SE / abstract',
+    exportButton: 'Export Report',
+    printButton: 'Print / Save PDF',
+    resetButton: 'Clear Records',
+    allStatus: 'All statuses',
+    allRisk: 'All risks',
+    all: 'All',
+    allItems: 'All Check Items',
+    shownSuffix: ' items shown',
+    noMatches: 'No matching check items. Try another keyword or clear filters.',
+    notePlaceholder: 'Optional note: page numbers not updated / table note missing clustered SE / abstract conclusion needs sync',
+    riskSuffix: 'risk',
+    confirmReset: 'Clear all checklist statuses and notes?',
+    parsing: 'Parsing locally. Please wait...',
+    pastedLatex: 'Pasted LaTeX source',
+    autoDonePrefix: 'Local initial auto check completed: ',
+    autoDoneSuffix: '. Results are rule-based prompts, not official review conclusions.',
+    autoErrorFallback: 'An error occurred during auto check. Please try another file format.',
+    footerDesc: 'A self-check aid for Jinan University graduate thesis writing standards. This tool is designed as a self-check aid for academic writing and formatting.',
+    summaryLabels: ['Passed or low-risk items', 'Risk items', 'Items needing manual review', 'Total checks'],
+    autoOverviewTitle: 'Auto-Check Overall Summary',
+    autoOverviewIntro: 'The system has run a rule-based initial check on extractable text. The pass rate and revision items are for reference only and are not official review conclusions.',
+    autoPassRateLabel: 'Auto-check pass rate',
+    autoNeedsTitle: 'Priority items to revise or verify',
+    autoNoNeeds: 'No clear high-risk missing items were detected. Please still manually verify page numbers, fonts, margins, figure/table placement, and other layout details.',
+    autoNeedPrefix: 'Needs attention',
+    autoReviewLabel: 'Needs manual review',
+    autoTopUpdated: 'The top summary now shows the auto-check pass rate and auto-suggested revision count.',
+    filterLabels: {all:'All', high:'High risk', mid:'Medium risk', low:'Low risk', review:'Manual review'},
+    statusLabels: {detected:'Detected / likely present', missing:'Not detected / possibly missing', review:'Needs manual review', na:'N/A or unclear'},
+    manualStatus: {ok:'Passed', fix:'Needs revision', na:'N/A', '':'Unchecked'},
+    priority: {'高':'High', '中':'Medium', '低':'Low', '普通':'General'},
+    resultEvidence: 'Evidence: ',
+    resultSuggestion: 'Suggestion: ',
+    warningPrefix: 'Note: ',
+    sectionProgressTitle: 'Section Progress',
+    sections: {
+      '全文格式规范': 'Full-Text Format',
+      '参考文献 / 与引用规范': 'References / Citation',
+      '章节内容质量': 'Chapter Content',
+      '数据处理 / 与实证规范': 'Data / Empirical Standards',
+      '定稿终检': 'Final Check'
+    }
+  }
+};
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch (e) { return {}; }
+}
+function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+function itemState(id) { return state[id] || {status:'', note:''}; }
+function setStatus(id, status) { state[id] = {...itemState(id), status}; saveState(); render(); }
+function setNote(id, note) { state[id] = {...itemState(id), note}; saveState(); updateStats(); }
+function pct(n, d) { return d === 0 ? 0 : Math.round(n / d * 100); }
+function escapeHTML(str) { return String(str).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
+function truncateText(str, max = 110) {
+  const clean = String(str || '').replace(/\s+/g, ' ').trim();
+  return clean.length > max ? clean.slice(0, max) + '...' : clean;
+}
+function countMatches(text, regex) { return (text.match(regex) || []).length; }
+function hasAny(text, patterns) { return patterns.some(pattern => pattern.test(text)); }
+function evidenceFor(text, patterns) {
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match) return truncateText(match[0]);
+  }
+  return '';
+}
+function t(key) { return I18N[currentLang][key] || I18N.zh[key] || key; }
+function tSection(section) { return I18N[currentLang].sections[section] || section; }
+function tPriority(priority) { return I18N[currentLang].priority[priority] || priority; }
+function applyStaticLanguage() {
+  const textMap = {
+    heroTitle: 'pageTitle',
+    heroIntro: 'heroIntro',
+    sourceNote: 'sourceNote',
+    disclaimer: 'disclaimer',
+    languageLabel: 'language',
+    overallLabel: 'overallLabel',
+    fixCountLabel: 'fixCountLabel',
+    autoTitle: 'autoTitle',
+    autoIntro: 'autoIntro',
+    uploadLabel: 'uploadLabel',
+    docTip: 'docTip',
+    latexLabel: 'latexLabel',
+    latexTip: 'latexTip',
+    autoCheckBtn: 'autoButton',
+    clearFileBtn: 'clearButton',
+    autoExportBtn: 'autoExportButton',
+    autoPrintBtn: 'autoPrintButton',
+    privacyTip: 'privacyTip',
+    exportBtn: 'exportButton',
+    printBtn: 'printButton',
+    resetBtn: 'resetButton',
+    footerDesc: 'footerDesc'
+  };
+  document.title = t('pageTitle');
+  document.documentElement.lang = currentLang === 'en' ? 'en' : 'zh-CN';
+  document.getElementById('languageSelect').value = currentLang;
+  Object.entries(textMap).forEach(([id, key]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t(key);
+  });
+  document.getElementById('latexInput').placeholder = t('latexPlaceholder');
+  document.getElementById('searchInput').placeholder = t('searchPlaceholder');
+  const statusFilter = document.getElementById('statusFilter');
+  statusFilter.options[0].textContent = t('allStatus');
+  statusFilter.options[1].textContent = I18N[currentLang].manualStatus.ok;
+  statusFilter.options[2].textContent = I18N[currentLang].manualStatus.fix;
+  statusFilter.options[3].textContent = I18N[currentLang].manualStatus.na;
+  statusFilter.options[4].textContent = I18N[currentLang].manualStatus[''];
+  const priorityFilter = document.getElementById('priorityFilter');
+  priorityFilter.options[0].textContent = t('allRisk');
+  priorityFilter.options[1].textContent = currentLang === 'en' ? 'High risk' : '高风险';
+  priorityFilter.options[2].textContent = currentLang === 'en' ? 'Medium risk' : '中风险';
+  priorityFilter.options[3].textContent = currentLang === 'en' ? 'General' : '普通';
+  const autoMessage = document.getElementById('autoMessage');
+  if (!autoReport) autoMessage.textContent = t('autoInitial');
+  const sectionProgressTitle = document.querySelector('.side .panel h3');
+  if (sectionProgressTitle) sectionProgressTitle.textContent = t('sectionProgressTitle');
+}
+
+function getVisibleItems() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const sf = document.getElementById('statusFilter').value;
+  const pf = document.getElementById('priorityFilter').value;
+  return CHECKLIST.filter(item => {
+    const s = itemState(item.id).status || 'blank';
+    const inSection = activeSection === '全部' || item.section === activeSection;
+    const inQuery = !q || (item.text + item.section).toLowerCase().includes(q);
+    const inStatus = sf === 'all' || sf === s;
+    const inPriority = pf === 'all' || item.priority === pf;
+    return inSection && inQuery && inStatus && inPriority;
+  });
+}
+function renderTabs() {
+  document.getElementById('tabs').innerHTML = ['全部', ...SECTIONS].map(sec => `<button class="tab ${activeSection===sec?'active':''}" data-sec="${escapeHTML(sec)}">${escapeHTML(sec === '全部' ? t('all') : tSection(sec))}</button>`).join('');
+  document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => { activeSection = btn.dataset.sec; render(); }));
+}
+function renderItems() {
+  const visible = getVisibleItems();
+  document.getElementById('shownCount').textContent = visible.length;
+  document.getElementById('shownCount').parentElement.lastChild.textContent = t('shownSuffix');
+  document.getElementById('currentSectionTitle').textContent = activeSection === '全部' ? t('allItems') : tSection(activeSection);
+  if (!visible.length) {
+    document.getElementById('items').innerHTML = `<div class="empty">${escapeHTML(t('noMatches'))}</div>`;
+    return;
+  }
+  document.getElementById('items').innerHTML = visible.map(item => {
+    const s = itemState(item.id);
+    const pClass = item.priority === '高' ? 'high' : item.priority === '中' ? 'mid' : '';
+    const statusText = I18N[currentLang].manualStatus;
+    const buttons = [['ok',statusText.ok,'ok'], ['fix',statusText.fix,'fix'], ['na',statusText.na,'na'], ['',statusText[''],'']].map(([value,label,cls]) => `<label class="pill ${cls} ${(s.status||'')===value?'active':''}"><input type="radio" name="status-${item.id}" value="${value}" />${label}</label>`).join('');
+    return `<article class="item" data-id="${item.id}"><div class="item-top"><span class="badge">${item.id}</span><div class="text"><b>${escapeHTML(tSection(item.section))}</b>｜${escapeHTML(item.text)}</div><span class="priority ${pClass}">${tPriority(item.priority)} ${t('riskSuffix')}</span></div><div class="status-row">${buttons}<textarea placeholder="${escapeHTML(t('notePlaceholder'))}" data-note="${item.id}">${escapeHTML(s.note || '')}</textarea></div></article>`;
+  }).join('');
+  document.querySelectorAll('.item').forEach(card => {
+    const id = card.dataset.id;
+    card.querySelectorAll('input[type=radio]').forEach(input => input.addEventListener('change', () => setStatus(id, input.value)));
+  });
+  document.querySelectorAll('textarea[data-note]').forEach(area => area.addEventListener('input', () => setNote(area.dataset.note, area.value)));
+}
+function renderGuides() {
+  document.getElementById('guides').innerHTML = GUIDES.map(g => `<article class="guide-card"><h3>${escapeHTML(g.title)}</h3><ul>${g.points.map(p => `<li>${escapeHTML(p)}</li>`).join('')}</ul></article>`).join('');
+}
+function getAutoMetrics(results = autoReport ? autoReport.results : []) {
+  const applicable = results.filter(r => r.status !== 'na');
+  const passed = applicable.filter(r => r.status === 'detected' && r.risk !== '高');
+  const needs = results.filter(r => r.status === 'missing' || r.risk === '高');
+  const review = results.filter(r => r.status === 'review');
+  return {
+    applicable,
+    passed,
+    needs,
+    review,
+    passRate: pct(passed.length, applicable.length)
+  };
+}
+function updateStats() {
+  const effective = CHECKLIST.filter(item => itemState(item.id).status !== 'na');
+  const ok = effective.filter(item => itemState(item.id).status === 'ok').length;
+  const fixes = CHECKLIST.filter(item => itemState(item.id).status === 'fix').length;
+  const autoMetrics = autoReport ? getAutoMetrics() : null;
+  const overall = autoMetrics ? autoMetrics.passRate : pct(ok, effective.length);
+  document.getElementById('overallLabel').textContent = autoMetrics ? t('autoOverallLabel') : t('overallLabel');
+  document.getElementById('fixCountLabel').textContent = autoMetrics ? t('autoFixCountLabel') : t('fixCountLabel');
+  document.getElementById('overallPct').textContent = overall;
+  document.getElementById('overallBar').style.width = overall + '%';
+  document.getElementById('fixCount').textContent = autoMetrics ? autoMetrics.needs.length : fixes;
+  document.getElementById('sectionProgress').innerHTML = SECTIONS.map(sec => {
+    const rows = CHECKLIST.filter(i => i.section === sec && itemState(i.id).status !== 'na');
+    const passed = rows.filter(i => itemState(i.id).status === 'ok').length;
+    const val = pct(passed, rows.length);
+    return `<li><span>${escapeHTML(tSection(sec))}<div class="bar"><span style="width:${val}%"></span></div></span><b>${val}%</b></li>`;
+  }).join('');
+}
+function render() { applyStaticLanguage(); renderTabs(); renderItems(); renderGuides(); updateStats(); }
+
+async function extractTextFromDocx(file) {
+  if (!window.mammoth) throw new Error('DOCX 解析库 Mammoth.js 未能加载，请检查网络或稍后重试。');
+  const arrayBuffer = await file.arrayBuffer();
+  const result = await window.mammoth.extractRawText({arrayBuffer});
+  return {text: result.value || '', warnings: (result.messages || []).map(m => m.message).filter(Boolean)};
+}
+async function extractTextFromPdf(file) {
+  if (!window.pdfjsLib) throw new Error('PDF 解析库 PDF.js 未能加载，请检查网络或稍后重试。');
+  window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+  const pdf = await window.pdfjsLib.getDocument({data: await file.arrayBuffer()}).promise;
+  const pages = [];
+  for (let pageNo = 1; pageNo <= pdf.numPages; pageNo++) {
+    const page = await pdf.getPage(pageNo);
+    const content = await page.getTextContent();
+    pages.push(content.items.map(item => item.str).join(' '));
+  }
+  const text = pages.join('\n');
+  const warnings = text.replace(/\s/g, '').length < 300 ? ['PDF 可提取文字较少，可能是扫描版或图片型 PDF，本工具无法可靠识别。建议上传可复制文本的 PDF、DOCX 或 LaTeX 文件。'] : [];
+  return {text, warnings};
+}
+async function extractTextFromTex(file) { return {text: await file.text(), warnings: []}; }
+
+function makeResult(category, name, status, risk, basis, suggestion) {
+  return {category, name, status, risk, basis: truncateText(basis || '基于文本关键词或源代码规则进行初步判断。', 140), suggestion};
+}
+function analyzePlainText(text, fileType) {
+  const compact = text.replace(/\s+/g, '');
+  const results = [];
+  const addKeywordRule = (category, name, patterns, risk, suggestion) => {
+    const found = hasAny(text, patterns);
+    results.push(makeResult(category, name, found ? 'detected' : 'missing', found ? '低' : risk, found ? `匹配到：${evidenceFor(text, patterns)}` : '未检测到相关关键词或结构痕迹。', found ? '系统检测到相关内容，初步判断风险较低；仍建议按正式规范人工核对。' : suggestion));
+  };
+
+  addKeywordRule('基本结构检查', '封面相关信息', [/暨南大学|题\s*目|论文题目|学生姓名|指导教师|学院|专业/], '中', '未检测到明显封面信息，建议人工确认封面、题名、作者、导师、学院等信息是否完整。');
+  addKeywordRule('基本结构检查', '中文摘要', [/中文摘要|摘\s*要/], '高', '可能缺少中文摘要，建议按学校/学院模板核对。');
+  addKeywordRule('基本结构检查', '英文摘要 / Abstract', [/Abstract|英文摘要/i], '高', '可能缺少英文摘要，建议人工确认。');
+  addKeywordRule('基本结构检查', '关键词 / Keywords', [/关键词|Key\s*words?/i], '高', '可能缺少关键词，建议核对中英文关键词。');
+  addKeywordRule('基本结构检查', '目录', [/目\s*录|Contents/i], '中', '未检测到目录关键词，建议确认目录是否自动生成并与正文页码对应。');
+  addKeywordRule('基本结构检查', '正文一级标题', [/(^|\n)\s*(第[一二三四五六七八九十]+章|[一二三四五六七八九十]+、|1[.\s、])/], '中', '未检测到典型一级标题痕迹，建议检查正文层级是否清晰。');
+  addKeywordRule('基本结构检查', '结论', [/结论|研究结论|结论与建议|Conclusions?/i], '高', '可能缺少结论部分，建议核对全文结构。');
+  addKeywordRule('基本结构检查', '参考文献', [/参考文献|References?/i], '高', '可能缺少参考文献部分，建议核对正文引用与文后文献是否对应。');
+  addKeywordRule('基本结构检查', '致谢', [/致谢|Acknowledg(e)?ments?/i], '低', '未检测到致谢，若学院模板要求该部分，建议补充或人工确认。');
+  addKeywordRule('基本结构检查', '附录', [/附录|Appendix|Appendices/i], '低', '未检测到附录；如论文无附加材料，该项可视为不适用。');
+
+  addKeywordRule('摘要与关键词检查', '中文关键词数量', [/关键词[:：]\s*[\s\S]{2,80}/], '中', '未检测到中文关键词行，或关键词格式不明显，建议人工确认数量与分隔符。');
+  addKeywordRule('摘要与关键词检查', '英文关键词数量', [/Key\s*words?\s*[:：]\s*.{2,100}/i], '中', '未检测到英文关键词行，建议人工确认。');
+  const abstractMatch = text.match(/摘\s*要([\s\S]{0,900}?)(关键词|Abstract|目\s*录|第一章|一、)/);
+  results.push(makeResult('摘要与关键词检查', '摘要篇幅风险', abstractMatch && abstractMatch[1].replace(/\s/g, '').length >= 180 ? 'detected' : 'review', abstractMatch ? '中' : '高', abstractMatch ? `摘要片段长度约 ${abstractMatch[1].replace(/\s/g, '').length} 字。` : '未能稳定截取中文摘要正文。', '摘要是否过短、是否包含研究背景、方法、结果和结论仍需人工确认。'));
+
+  [
+    ['引言 / 绪论', [/引言|绪论|研究背景/], '高'],
+    ['文献综述', [/文献综述|文献回顾|研究综述/], '中'],
+    ['研究设计 / 模型设定 / 方法', [/研究设计|模型设定|研究方法|计量模型|模型构建/], '中'],
+    ['数据说明', [/数据来源|样本选择|样本筛选|变量定义|描述性统计/], '中'],
+    ['实证结果 / 结果分析', [/实证结果|结果分析|回归结果|基准回归/], '中'],
+    ['稳健性检验或进一步分析', [/稳健性|进一步分析|异质性|机制检验|内生性/], '中'],
+    ['结论与建议', [/结论与建议|研究结论|政策建议/], '高']
+  ].forEach(([name, patterns, risk]) => addKeywordRule('章节结构检查', name, patterns, risk, `未检测到“${name}”相关标题或关键词，建议结合论文类型人工确认。`));
+
+  const figureCount = countMatches(text, /图\s*\d+|Figure\s*\d+/gi);
+  const tableCount = countMatches(text, /表\s*\d+|Table\s*\d+/gi);
+  results.push(makeResult('图表与公式检查', '图表编号', figureCount + tableCount > 0 ? 'detected' : 'review', figureCount + tableCount > 0 ? '低' : '中', `粗略检测到图编号 ${figureCount} 处、表编号 ${tableCount} 处。`, '请人工确认图题在图下、表题在表上，编号无断号、重号。'));
+  results.push(makeResult('图表与公式检查', '公式编号或公式环境', /\(\s*\d+([-.]\d+)?\s*\)|公式\s*\d+/.test(text) ? 'detected' : 'review', '中', '基于“(1)”或“公式1”等文本痕迹识别。', 'Word/PDF 中公式编号识别不完全，建议人工确认公式是否居中且编号规范。'));
+  results.push(makeResult('图表与公式检查', '图表未在正文中引用风险', figureCount + tableCount > 0 ? 'review' : 'na', figureCount + tableCount > 0 ? '中' : '低', '通过图/表编号出现次数粗略判断，无法区分标题和正文引用。', '若图表编号只在标题处出现，建议补充“如图1所示”“见表1”等正文引用。'));
+
+  const citationCount = countMatches(text, /（\d{4}[a-z]?）|\([A-Z][A-Za-z.\-]+,\s*\d{4}[a-z]?\)|[，,]\s*\d{4}[a-z]?\)/g);
+  const hasReference = /参考文献|References?/i.test(text);
+  results.push(makeResult('引用与参考文献检查', '正文引用痕迹', citationCount > 0 ? 'detected' : 'missing', citationCount > 0 ? '低' : '高', `粗略检测到正文引用痕迹 ${citationCount} 处。`, citationCount > 0 ? '请继续核对正文引用与文后参考文献是否一一对应。' : '未检测到明显正文引用痕迹，建议确认引用格式是否规范。'));
+  results.push(makeResult('引用与参考文献检查', '参考文献部分', hasReference ? 'detected' : 'missing', hasReference ? '低' : '高', hasReference ? '检测到参考文献或 References 标题。' : '未检测到参考文献标题。', hasReference ? '请人工确认文献格式是否与学校要求一致。' : '可能缺少参考文献部分，建议重点核对。'));
+  results.push(makeResult('引用与参考文献检查', '引用与参考文献对应风险', hasReference && citationCount < 3 ? 'review' : 'detected', hasReference && citationCount < 3 ? '中' : '低', `参考文献标题：${hasReference ? '已检测到' : '未检测到'}；正文引用痕迹：${citationCount} 处。`, '如果参考文献较多但正文引用较少，建议检查是否存在文后列出但正文未引用的情况。'));
+
+  results.push(makeResult('Word/PDF 文本层面的格式风险提示', '页码', 'review', '中', '纯文本提取无法可靠读取页码、页眉页脚和页面位置。', '请人工确认页码、页眉页脚、目录页码与正文是否一致。'));
+  results.push(makeResult('Word/PDF 文本层面的格式风险提示', '明显空章节标题', /(^|\n)\s*(第[一二三四五六七八九十]+章|[一二三四五六七八九十]+、)\s*\n\s*(第[一二三四五六七八九十]+章|[一二三四五六七八九十]+、)/.test(text) ? 'review' : 'detected', '中', '基于连续章节标题的文本模式进行粗略识别。', '若存在空章节或标题后无正文，建议补充内容或调整层级。'));
+  results.push(makeResult('Word/PDF 文本层面的格式风险提示', '连续过短段落', countMatches(text, /\n\s*.{1,18}\s*\n/g) > 20 ? 'review' : 'detected', '低', '基于短行数量进行粗略判断，PDF 换行可能造成误判。', '如短段落过多，建议检查是否存在断行、列表化过强或排版异常。'));
+  results.push(makeResult('Word/PDF 文本层面的格式风险提示', '中英文标点混用', /[，。；：！？][A-Za-z]|\p{Script=Han}[,;:!?]/u.test(compact) ? 'review' : 'detected', '低', '基于中文字符附近出现英文标点或反向组合进行提示。', '请人工抽查全文标点，尤其是数字、英文缩写和中文句子交界处。'));
+
+  if (fileType === 'pdf') {
+    results.push(makeResult('PDF 文件提示', 'PDF 排版细节识别限制', 'review', '中', 'PDF 自动检查以文本结构和关键词识别为主。', '本工具不能精确判断所有页边距、字体字号和视觉排版细节，最终仍需人工核对。'));
+  }
+  return results;
+}
+
+function analyzeLatexSource(tex) {
+  const textResults = analyzePlainText(tex, 'tex');
+  const latexResults = [];
+  const latexRule = (name, regex, risk, suggestion) => {
+    const found = regex.test(tex);
+    latexResults.push(makeResult('LaTeX 专项检查', name, found ? 'detected' : 'missing', found ? '低' : risk, found ? `匹配到命令：${evidenceFor(tex, [regex])}` : '未检测到相关 LaTeX 命令。', found ? '系统检测到相关命令，仍建议结合学校模板人工确认参数。' : suggestion));
+  };
+  latexRule('documentclass 设置', /\\documentclass(?:\[[^\]]*\])?\{[^}]+\}/, '高', '建议确认是否使用学校或学院认可的模板与文档类。');
+  latexRule('geometry 或页面设置', /\\usepackage(?:\[[^\]]*\])?\{geometry\}|\\geometry\{[^}]+\}/, '中', '未检测到 geometry，若模板另有页面设置也可人工确认。');
+  latexRule('fontspec / xeCJK 中文字体设置', /\\usepackage(?:\[[^\]]*\])?\{fontspec\}|\\usepackage(?:\[[^\]]*\])?\{xeCJK\}|\\setCJKmainfont/, '中', '建议确认中文字体、英文字体和编译方式是否符合规范。');
+  latexRule('title / author / date 或封面相关代码', /\\title\{|\\author\{|\\date\{|封面|cover/i, '中', '未检测到明显标题、作者或封面命令，建议核对封面生成方式。');
+  latexRule('abstract 环境或摘要标题', /\\begin\{abstract\}|摘要|Abstract/i, '高', '可能缺少摘要环境或摘要标题。');
+  latexRule('table / figure 环境', /\\begin\{(?:table|figure)\}/, '中', '未检测到图表浮动体；如全文无图表可视为不适用。');
+  latexRule('caption 命令', /\\caption(?:\[[^\]]*\])?\{[^}]+\}/, '中', '检测到图表环境时建议确保每个 figure/table 都有 caption。');
+  latexRule('label 与 ref', /\\label\{[^}]+\}|\\ref\{[^}]+\}/, '中', '建议使用 label/ref 管理图表、公式和章节引用。');
+  latexRule('cite 引用命令', /\\(?:cite|parencite|textcite|citep|citet)\{[^}]+\}/, '高', '未检测到引用命令，建议确认正文引用是否完整。');
+  latexRule('bibliography / biblatex', /\\bibliography\{[^}]+\}|\\printbibliography|\\addbibresource\{[^}]+\}|\\bibliographystyle\{[^}]+\}/, '高', '未检测到参考文献命令，建议确认文末参考文献生成方式。');
+  latexRule('equation 环境', /\\begin\{(?:equation|align|gather|multline)\*?\}/, '低', '未检测到公式环境；如论文无公式可视为不适用。');
+  latexRule('hyperref', /\\usepackage(?:\[[^\]]*\])?\{hyperref\}/, '低', '建议按模板要求决定是否启用 hyperref。');
+  const begins = [...tex.matchAll(/\\begin\{([^}]+)\}/g)].map(m => m[1]);
+  const ends = [...tex.matchAll(/\\end\{([^}]+)\}/g)].map(m => m[1]);
+  const unbalanced = begins.some(env => begins.filter(e => e === env).length !== ends.filter(e => e === env).length);
+  latexResults.push(makeResult('LaTeX 专项检查', '明显未闭合环境风险', unbalanced ? 'review' : 'detected', unbalanced ? '高' : '低', `begin 数量 ${begins.length}，end 数量 ${ends.length}。`, unbalanced ? '检测到 begin/end 数量可能不一致，建议检查环境是否闭合。' : '未发现明显 begin/end 数量不一致。'));
+  return [...textResults, ...latexResults];
+}
+
+async function runAutoCheck() {
+  const file = document.getElementById('paperFile').files[0];
+  const pastedTex = document.getElementById('latexInput').value.trim();
+  const message = document.getElementById('autoMessage');
+  try {
+    message.textContent = t('parsing');
+    let text = '';
+    let fileType = 'tex';
+    let fileName = t('pastedLatex');
+    let warnings = [];
+    if (file) {
+      fileName = file.name;
+      const ext = file.name.split('.').pop().toLowerCase();
+      fileType = ext;
+      if (file.size > MAX_FILE_SIZE) warnings.push('文件超过 20MB，浏览器端解析可能较慢。');
+      if (ext === 'doc') throw new Error('老式 .doc 二进制格式在纯前端网页中解析能力有限。建议先转换为 .docx 或 PDF 后再上传。');
+      if (ext === 'docx') {
+        const extracted = await extractTextFromDocx(file);
+        text = extracted.text;
+        warnings = [...warnings, ...extracted.warnings];
+      }
+      if (ext === 'pdf') {
+        const extracted = await extractTextFromPdf(file);
+        text = extracted.text;
+        warnings = [...warnings, ...extracted.warnings];
+      }
+      if (ext === 'tex') {
+        const extracted = await extractTextFromTex(file);
+        text = extracted.text;
+        warnings = [...warnings, ...extracted.warnings];
+      }
+      if (!['docx', 'pdf', 'tex'].includes(ext)) throw new Error('暂不支持该文件类型。请上传 .docx、.pdf 或 .tex 文件。');
+    } else {
+      if (!pastedTex) throw new Error('请先上传论文文件，或粘贴 LaTeX 源代码。');
+      text = pastedTex;
+      fileType = 'tex';
+    }
+    if (!text.trim()) throw new Error('未能提取到可识别文本。请确认文件不是空文件，或尝试转换为可复制文本的 PDF、DOCX 或 TEX。');
+    const results = fileType === 'tex' ? analyzeLatexSource(text) : analyzePlainText(text, fileType);
+    autoReport = {fileName, fileType, checkedAt: new Date(), warnings, results};
+    renderAutoCheckResults();
+    message.textContent = `${t('autoDonePrefix')}${fileName}${t('autoDoneSuffix')}`;
+  } catch (err) {
+    autoReport = null;
+    renderAutoCheckResults();
+    message.textContent = err.message || t('autoErrorFallback');
+  }
+}
+function renderAutoCheckResults() {
+  updateStats();
+  renderAutoOverview();
+  const summary = document.getElementById('autoSummary');
+  const filters = document.getElementById('resultFilters');
+  const container = document.getElementById('autoResults');
+  if (!autoReport) {
+    summary.hidden = true;
+    filters.hidden = true;
+    container.innerHTML = '';
+    return;
+  }
+  const results = autoReport.results;
+  const metrics = getAutoMetrics(results);
+  const counts = {
+    detected: metrics.passed.length,
+    risk: metrics.needs.length,
+    review: metrics.review.length,
+    total: results.length
+  };
+  summary.hidden = false;
+  const summaryLabels = t('summaryLabels');
+  summary.innerHTML = [
+    [summaryLabels[0], counts.detected],
+    [summaryLabels[1], counts.risk],
+    [summaryLabels[2], counts.review],
+    [summaryLabels[3], counts.total]
+  ].map(([label, value]) => `<div class="risk-card"><strong>${value}</strong><span>${label}</span></div>`).join('');
+  filters.hidden = false;
+  const filterText = t('filterLabels');
+  const filterDefs = [['all',filterText.all], ['high',filterText.high], ['mid',filterText.mid], ['low',filterText.low], ['review',filterText.review]];
+  filters.innerHTML = filterDefs.map(([key, label]) => `<button class="filter-chip ${autoFilter===key?'active':''}" data-filter="${key}">${label}</button>`).join('');
+  filters.querySelectorAll('button').forEach(btn => btn.addEventListener('click', () => { autoFilter = btn.dataset.filter; renderAutoCheckResults(); }));
+  const visible = results.filter(r => {
+    if (autoFilter === 'all') return true;
+    if (autoFilter === 'review') return r.status === 'review';
+    if (autoFilter === 'high') return r.risk === '高';
+    if (autoFilter === 'mid') return r.risk === '中';
+    if (autoFilter === 'low') return r.risk === '低';
+    return true;
+  });
+  const warnings = autoReport.warnings.length ? `<div class="evidence">${escapeHTML(t('warningPrefix'))}${autoReport.warnings.map(escapeHTML).join('；')}</div>` : '';
+  const statusLabels = t('statusLabels');
+  const statusClass = {detected:'status-detected', missing:'status-missing', review:'status-review', na:'status-na'};
+  const riskClass = {'高':'risk-high', '中':'risk-mid', '低':'risk-low'};
+  container.innerHTML = warnings + visible.map(item => `<article class="result-item"><div class="result-head"><h4>${escapeHTML(item.category)}｜${escapeHTML(item.name)}</h4><span><span class="status-tag ${statusClass[item.status]}">${statusLabels[item.status]}</span> <span class="risk-tag ${riskClass[item.risk]}">${tPriority(item.risk)} ${t('riskSuffix')}</span></span></div><p><b>${escapeHTML(t('resultEvidence'))}</b>${escapeHTML(item.basis)}</p><p><b>${escapeHTML(t('resultSuggestion'))}</b>${escapeHTML(item.suggestion)}</p></article>`).join('');
+}
+function renderAutoOverview() {
+  const overview = document.getElementById('autoOverview');
+  if (!autoReport) {
+    overview.hidden = true;
+    overview.innerHTML = '';
+    return;
+  }
+  const metrics = getAutoMetrics();
+  const needsList = metrics.needs.length
+    ? `<ol class="action-list">${metrics.needs.map(item => `<li><b>${escapeHTML(item.category)}｜${escapeHTML(item.name)}</b>：${escapeHTML(item.suggestion)}<br><span class="meta">${escapeHTML(t('resultEvidence'))}${escapeHTML(item.basis)}</span></li>`).join('')}</ol>`
+    : `<p>${escapeHTML(t('autoNoNeeds'))}</p>`;
+  overview.hidden = false;
+  overview.innerHTML = `<h3>${escapeHTML(t('autoOverviewTitle'))}</h3><p>${escapeHTML(t('autoOverviewIntro'))}</p><p><b>${escapeHTML(t('autoPassRateLabel'))}：${metrics.passRate}%</b>（${metrics.passed.length}/${metrics.applicable.length}）｜${escapeHTML(t('autoNeedPrefix'))}：${metrics.needs.length}｜${escapeHTML(t('autoReviewLabel'))}：${metrics.review.length}</p><p>${escapeHTML(t('autoTopUpdated'))}</p><h3>${escapeHTML(t('autoNeedsTitle'))}</h3>${needsList}`;
+}
+function clearAutoCheck() {
+  document.getElementById('paperFile').value = '';
+  document.getElementById('latexInput').value = '';
+  document.getElementById('autoMessage').textContent = t('autoInitial');
+  autoReport = null;
+  renderAutoCheckResults();
+  updateStats();
+}
+function buildAutoReportMarkdown() {
+  if (!autoReport) return '## 自动检测摘要\n\n文件名：未上传或未运行自动初检。\n\n尚未运行自动初检。\n\n';
+  const metrics = getAutoMetrics();
+  const highRisk = autoReport.results.filter(r => r.risk === '高' || r.status === 'missing');
+  const review = autoReport.results.filter(r => r.status === 'review');
+  let md = `## 自动检测摘要\n\n文件名：${autoReport.fileName}\n\n文件类型：${autoReport.fileType.toUpperCase()}\n\n检查时间：${autoReport.checkedAt.toLocaleString('zh-CN')}\n\n`;
+  if (autoReport.warnings.length) md += `解析提示：${autoReport.warnings.join('；')}\n\n`;
+  md += `自动检测仅导出规则摘要和少量证据片段，不包含论文全文。\n\n自动初检通过率：${metrics.passRate}%（${metrics.passed.length}/${metrics.applicable.length}）\n\n自动建议修改项：${metrics.needs.length} 项\n\n需要人工确认：${metrics.review.length} 项\n\n### 高风险 / 建议修改问题列表\n\n`;
+  md += highRisk.length ? highRisk.map(r => `- ${r.category}｜${r.name}：${r.basis}；建议：${r.suggestion}`).join('\n') + '\n\n' : '- 暂未检测到高风险提示。\n\n';
+  md += `### 需要人工确认的问题列表\n\n`;
+  md += review.length ? review.map(r => `- ${r.category}｜${r.name}：${r.basis}；建议：${r.suggestion}`).join('\n') + '\n\n' : '- 暂无需要人工确认的自动提示。\n\n';
+  return md;
+}
+function exportMarkdown() {
+  const now = new Date();
+  const date = now.toLocaleString('zh-CN');
+  const effective = CHECKLIST.filter(item => itemState(item.id).status !== 'na');
+  const ok = effective.filter(item => itemState(item.id).status === 'ok').length;
+  const fixItems = CHECKLIST.filter(item => itemState(item.id).status === 'fix');
+  let md = `# 毕业论文格式与写作规范自查报告\n\n生成时间：${date}\n\n作者信息：杨杰（Jie Yang）｜jieyang020618@gmail.com\n\n版权声明：© 2026 杨杰 Jie Yang. All rights reserved.\n\n说明：本工具为自查辅助工具，不是学校官方审核系统；检测结果仅供修改参考，最终仍需以学校/学院正式论文规范和导师意见为准。\n\n`;
+  md += buildAutoReportMarkdown();
+  md += `## 手动 checklist 完成情况\n\n总体通过率：${pct(ok, effective.length)}%\n\n仍需修改：${fixItems.length} 项\n\n`;
+  for (const sec of SECTIONS) {
+    md += `### ${sec}\n\n`;
+    CHECKLIST.filter(i => i.section === sec).forEach(item => {
+      const s = itemState(item.id);
+      const statusMap = {ok:'已通过', fix:'需修改', na:'不适用', '':'未检查'};
+      md += `- [${statusMap[s.status || '']}] ${item.text}`;
+      if (s.note) md += `；备注：${s.note.replace(/\n/g, '；')}`;
+      md += `\n`;
+    });
+    md += `\n`;
+  }
+  const blob = new Blob([md], {type:'text/markdown;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = '毕业论文格式与写作规范自查报告.md';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+document.getElementById('searchInput').addEventListener('input', renderItems);
+document.getElementById('statusFilter').addEventListener('change', renderItems);
+document.getElementById('priorityFilter').addEventListener('change', renderItems);
+document.getElementById('exportBtn').addEventListener('click', exportMarkdown);
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if (confirm(t('confirmReset'))) { state = {}; saveState(); render(); }
+});
+document.getElementById('autoCheckBtn').addEventListener('click', runAutoCheck);
+document.getElementById('clearFileBtn').addEventListener('click', clearAutoCheck);
+document.getElementById('autoExportBtn').addEventListener('click', exportMarkdown);
+document.getElementById('autoPrintBtn').addEventListener('click', () => window.print());
+document.getElementById('languageSelect').addEventListener('change', event => {
+  currentLang = event.target.value;
+  render();
+  renderAutoCheckResults();
+});
+render();
+</script>
+</body>
+</html>
