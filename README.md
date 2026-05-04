@@ -1,6 +1,6 @@
 # 暨南大学经济学院研究生毕业论文格式与写作规范自查工具
 
-Jinan University College of Economics Graduate Thesis Format and Writing Self-Check Tool
+Jinan University School of Economics Graduate Thesis Format and Writing Self-Check Tool
 
 ## Overview
 
