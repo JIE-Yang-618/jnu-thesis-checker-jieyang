@@ -1,67 +1,69 @@
-# 暨南大学研究生毕业论文格式与写作规范自查工具
+# 暨南大学经济学院研究生毕业论文格式与写作规范自查工具
 
-这是一个面向暨南大学研究生毕业论文写作规范的静态网页自查工具，支持手动 checklist 和本地文件自动初检。项目可直接部署到 GitHub Pages，文件解析尽可能在浏览器本地完成，不需要后端服务器、数据库或 Node.js 构建流程。
+Jinan University College of Economics Graduate Thesis Format and Writing Self-Check Tool
 
-本工具基于暨南大学研究生毕业论文写作与格式规范，并结合研究生论文写作中的常见格式、结构与实证规范问题整理而成，旨在帮助同学们在论文提交前进行系统化自查。它是自查辅助工具，不是学校官方审核系统；检测结果仅供修改参考，最终仍需以学校/学院正式论文规范和导师意见为准。
+## Overview
 
-## 功能说明
+This project is a GitHub Pages-ready static web tool for graduate students in the College of Economics, Jinan University, to self-check thesis writing and formatting requirements. It supports a manual checklist, local DOCX / PDF / TEX preliminary checks, Markdown self-check report export, and a Chinese / English interface.
 
-- 手动论文格式 checklist，支持“已通过 / 需修改 / 不适用 / 未检查”状态。
-- 支持上传 DOCX / PDF / TEX 文件进行浏览器本地解析。
-- 支持直接粘贴 LaTeX 源代码进行规则化检查。
-- 自动生成结构、摘要、关键词、章节、图表、公式、引用和参考文献等风险提示。
-- 上传文件完成自动初检后，页面会显示自动初检通过率、自动建议修改项数量、需要人工确认项数量，以及建议优先修改或核对的条目清单。
-- 支持关键词搜索、状态筛选、风险等级筛选和修改备注。
-- 支持导出 Markdown 自查报告，报告包含自动检测摘要和手动 checklist 完成情况。
-- 自动检查区域和页面工具栏均可触发导出报告、打印或保存 PDF。
-- 手动勾选状态只保存在本机浏览器 localStorage；上传论文内容不会保存到 localStorage，也不会上传服务器。
-- 页面提供中文 / English 语言切换，用于切换主要界面文案、按钮、筛选项和结果状态提示。
+The project is fully static. It does not require a backend server, database, Node.js build pipeline, or complex deployment workflow.
 
-## 使用限制
+This tool is a self-check aid and reference tool only. It is not an official Jinan University or college review system. The automatic check uses rule-based detection and risk prompts, so results should be understood cautiously as “possibly missing,” “suggested manual confirmation,” or “preliminary judgment.” It cannot replace formal college review, official university documents, or supervisor guidance.
 
-- 本工具不是暨南大学官方工具，也不是学校官方审核系统。
-- 自动检查采用“规则识别 + 风险提示”，不能保证覆盖所有格式与内容问题。
-- PDF 扫描件或图片型 PDF 无法可靠识别，建议上传可复制文本的 PDF、DOCX 或 TEX 文件。
-- 老式 `.doc` 二进制文件支持有限，建议先转换为 `.docx` 或 PDF。
-- 页面边距、页码、字体字号、页眉页脚、图表位置等视觉排版细节仍需人工核对。
-- 参考文献格式、导师意见和学院具体模板要求应以正式规范为准。
+## Project Structure
 
-## 快速部署到 GitHub Pages
+- `index.html`: New default page for GitHub Pages.
+- `index_old.html`: Preserved legacy page. Only a return link to the new page has been added.
+- `resources/`: Directory for reference PDF materials.
+- `resources/thesis_writing_and_defense_notes.pdf`: PDF notes on thesis writing, defense preparation, and data search experience. Thanks to Pei Tiancheng for providing the related materials.
+- `jnu_logo.png`: Jinan University logo shown near the footer.
+- `.nojekyll`: GitHub Pages static deployment marker.
+- `README.md`: Project documentation.
 
-1. 新建一个 GitHub 仓库，例如 `paper-format-checker`。
-2. 将 `index.html`、`README.md`、`jnu_logo.png`、`.nojekyll` 上传到仓库根目录。
-3. 进入仓库 `Settings` -> `Pages`。
-4. Source 选择 `Deploy from a branch`，Branch 选择 `main`，Folder 选择 `/root`。
-5. 保存后等待部署完成，访问 GitHub Pages 生成的网页链接。
+## Features
 
-如果部署后页面底部看不到校徽，请确认 `jnu_logo.png` 与 `index.html` 位于同一目录。
+- Manual thesis format checklist with “Passed / Needs revision / N/A / Unchecked” states.
+- Local browser parsing for DOCX / PDF / TEX files.
+- Direct LaTeX source paste-in for rule-based checks.
+- Risk prompts for structure, abstract, keywords, chapters, figures, tables, equations, citations, and references.
+- Search, status filtering, risk-level filtering, and revision notes.
+- Markdown self-check report export, including automatic check summary and manual checklist status.
+- `localStorage` saves only manual checklist states and notes; uploaded thesis content is not saved to `localStorage` and is not uploaded to any server.
+- Chinese / English interface switching, with the selected language remembered in the browser.
 
-## 仓库权限建议
+## Thanks
 
-- 不要随意添加 collaborator。
-- 如需公开展示网页但不希望他人修改正式代码，应只开放 GitHub Pages 访问，不开放仓库写权限。
-- 建议开启 `main` 分支保护，避免误提交。
-- 不要添加 MIT、Apache、GPL 等开源许可证，除非作者明确希望开源。
-- 如需进一步保护源代码，可考虑将仓库设为 private，并仅发布必要的静态页面版本。
+The content of this tool mainly draws on thesis writing and format-checking materials accumulated by previous senior students. Special thanks go to Pei Tiancheng, Lin Xingguang, and others for their systematic work on related checklists, writing experience, and reference materials, which provided an important foundation for this tool.
 
-## 本地使用
+Sincere thanks are also extended to Professor Ouyang for guidance and support in graduate thesis writing standards and academic training.
 
-直接双击打开 `index.html` 即可使用。若浏览器或网络环境阻止 CDN 脚本加载，DOCX / PDF 自动解析可能不可用，页面会给出提示；手动 checklist、LaTeX 文本检查和报告导出仍可继续使用。
+On the basis of these materials, Yang Jie integrated and structured the relevant content, implemented it as a web-based tool, and is responsible for the tool design, feature development, and ongoing maintenance.
 
-## 修改清单内容
+## Scope and Disclaimer
 
-所有手动核查条目都写在 `index.html` 文件中的 `CHECKLIST` 常量里。当前页面不提供规则编辑、自定义检查项或管理设置入口；普通用户只能使用自查功能，不能在页面中直接修改底层规则、检测逻辑或页面配置。检查规则由作者维护，后续如果学院或学校正式规范有调整，应由维护者修改源码中的对应条目，保持单文件静态部署即可。
+This tool is mainly intended as a self-check aid for graduate thesis writing and formatting in the College of Economics, Jinan University. Requirements may differ across colleges or programs, so please follow your college’s official requirements, the latest university documents, and your supervisor’s advice.
 
-## 代码维护与版权说明
+This tool is not an official university or college review system and does not claim to replace college review, supervisor feedback, or official documents. Automatic checks cannot cover every formatting, content, or layout issue. Details such as margins, page numbers, fonts, headers, footers, figure/table placement, and reference formatting still require manual verification.
 
-本工具由杨杰（Jie Yang）设计、整理与维护。Copyright: © 2026 杨杰 Jie Yang. All rights reserved.
+## Deployment to GitHub Pages
 
-本项目未声明开源许可证，未经作者许可，不得复制、修改、再发布或用于商业用途。GitHub Pages 页面本身是静态网页，普通访问者不能修改作者 GitHub 仓库中的正式代码。
+1. Create or open a GitHub repository.
+2. Upload `index.html`, `index_old.html`, `README.md`, `jnu_logo.png`, `resources/`, and `.nojekyll` to the repository root.
+3. Go to repository `Settings` -> `Pages`.
+4. Set Source to `Deploy from a branch`.
+5. Select branch `main` and folder `/root`.
+6. Save the settings and wait for GitHub Pages to finish deployment.
 
-如需保护正式版本，请通过 GitHub 仓库权限、分支保护和协作者权限管理来控制代码修改权。前端页面中的访问密钥只能防止普通用户误触发编辑功能，不能替代 GitHub 仓库权限控制；静态网页源码本身仍可能被查看。
+If the logo is not displayed, confirm that `jnu_logo.png` is in the repository root together with `index.html`. If the reference material link does not open, confirm that `resources/thesis_writing_and_defense_notes.pdf` has been uploaded to the `resources/` directory.
 
-## 作者信息
+## Local Use
 
-Author / Maintainer: 杨杰 Jie Yang  
+Open `index.html` directly in a browser. If the browser or network environment blocks CDN scripts, DOCX / PDF automatic parsing may be unavailable and the page will show a warning. The manual checklist, LaTeX text check, and report export can still be used.
+
+## Author
+
+Author / Maintainer: 杨杰（Jie Yang）  
 Email: jieyang020618@gmail.com  
 Copyright: © 2026 杨杰 Jie Yang. All rights reserved.
+
+No open-source license is declared for this project. Without the author’s permission, copying, modification, redistribution, or commercial use is not permitted.

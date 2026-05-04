@@ -3,33 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>暨南大学经济学院研究生毕业论文格式与写作规范自查工具</title>
+  <title>暨南大学研究生毕业论文格式与写作规范自查工具</title>
   <style>
     :root {
-      --bg: #f4f8f5; --card: #ffffff; --ink: #1f2a2a; --muted: #61716b; --line: #dfe8e2;
-      --primary: #16835a; --primary-soft: #e8f6ef; --ok: #16a34a; --warn: #d97706; --bad: #dc2626;
-      --accent: #2f7fb5; --warm: #f7f2e8; --shadow: 0 18px 42px rgba(24, 83, 61, 0.10); --radius: 16px;
+      --bg: #f6f7fb; --card: #ffffff; --ink: #202536; --muted: #647084; --line: #e5e7ef;
+      --primary: #2563eb; --primary-soft: #eaf1ff; --ok: #16a34a; --warn: #f59e0b; --bad: #dc2626;
+      --shadow: 0 18px 45px rgba(31, 41, 55, 0.08); --radius: 18px;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: linear-gradient(180deg, #edf8f2 0%, #f7fbf8 260px, var(--bg) 100%); color: var(--ink); }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: linear-gradient(180deg, #eff4ff 0%, var(--bg) 240px); color: var(--ink); }
     a { color: var(--primary); }
     .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 18px 56px; }
     header { display: grid; grid-template-columns: 1.5fr 0.9fr; gap: 20px; align-items: stretch; margin-bottom: 18px; }
-    .hero, .panel, .checklist, .guide-card, .auto-check, .resource-section { background: rgba(255,255,255,0.94); border: 1px solid rgba(209,224,216,0.92); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .hero, .panel, .checklist, .guide-card, .auto-check { background: rgba(255,255,255,0.92); border: 1px solid rgba(226,232,240,0.85); border-radius: var(--radius); box-shadow: var(--shadow); }
     .hero { padding: 28px; }
-    .hero h1 { margin: 0 0 10px; font-size: clamp(26px, 4vw, 42px); line-height: 1.08; letter-spacing: 0; }
+    .hero h1 { margin: 0 0 10px; font-size: clamp(26px, 4vw, 42px); line-height: 1.08; letter-spacing: -0.04em; }
     .hero p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
     .byline { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; color: #334155; font-size: 14px; font-weight: 650; }
     .language-switch { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 650; }
     .language-switch select { min-height: 34px; padding: 5px 10px; border-radius: 999px; font-size: 13px; }
-    .source-note { margin-top: 12px; padding: 12px 14px; border: 1px solid #cdebd9; border-radius: 14px; background: #f4fbf7; color: #46645a; font-size: 14px; line-height: 1.7; }
+    .source-note { margin-top: 12px; padding: 12px 14px; border: 1px solid #dbeafe; border-radius: 14px; background: #f8fbff; color: #475569; font-size: 14px; line-height: 1.7; }
     .disclaimer { margin-top: 10px; color: #7c2d12; font-size: 13px; line-height: 1.7; }
     .stats { display: grid; gap: 12px; padding: 18px; }
     .stat-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
-    .stat-card .num { font-size: 30px; font-weight: 800; letter-spacing: 0; }
+    .stat-card .num { font-size: 30px; font-weight: 800; letter-spacing: -0.04em; }
     .stat-card .label { color: var(--muted); font-size: 13px; margin-top: 4px; }
     .progress { height: 10px; background: #e9edf6; border-radius: 999px; overflow: hidden; margin-top: 10px; }
-    .progress > span { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), #4fb38c); transition: width .25s ease; }
+    .progress > span { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), #60a5fa); transition: width .25s ease; }
     .toolbar { display: grid; grid-template-columns: 1.1fr 0.7fr 0.7fr auto auto auto; gap: 10px; align-items: center; margin: 18px 0; }
     input, select, textarea, button { font: inherit; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
     input, select { padding: 11px 12px; min-height: 44px; }
@@ -49,18 +49,18 @@
     .tex-input { min-height: 145px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
     .auto-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     .auto-message { color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .auto-overview { border: 1px solid #cdebd9; border-radius: 16px; background: #f4fbf7; padding: 14px; display: grid; gap: 10px; }
+    .auto-overview { border: 1px solid #bfdbfe; border-radius: 16px; background: #f8fbff; padding: 14px; display: grid; gap: 10px; }
     .auto-overview h3 { margin: 0; font-size: 16px; }
     .auto-overview p { margin: 0; color: var(--muted); line-height: 1.7; font-size: 14px; }
     .action-list { margin: 0; padding-left: 18px; color: #334155; line-height: 1.75; font-size: 14px; }
     .action-list li::marker { color: var(--bad); }
     .risk-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
     .risk-card { border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: #fff; }
-    .risk-card strong { display: block; font-size: 24px; letter-spacing: 0; }
+    .risk-card strong { display: block; font-size: 24px; letter-spacing: -0.03em; }
     .risk-card span { color: var(--muted); font-size: 13px; }
     .result-filters { display: flex; flex-wrap: wrap; gap: 8px; }
     .filter-chip { min-height: 34px; padding: 7px 10px; border-radius: 999px; font-size: 13px; color: var(--muted); }
-    .filter-chip.active { color: var(--primary); background: var(--primary-soft); border-color: #b7e4c8; }
+    .filter-chip.active { color: var(--primary); background: var(--primary-soft); border-color: #bcd3ff; }
     .auto-results { display: grid; gap: 10px; }
     .result-item { border: 1px solid var(--line); border-radius: 16px; padding: 14px; background: #fff; display: grid; gap: 8px; }
     .result-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
@@ -74,7 +74,7 @@
     .evidence { color: #334155; background: #f8fafc; border-radius: 10px; padding: 8px 10px; font-size: 13px; line-height: 1.6; }
     .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 16px; }
     .tab { border: 1px solid var(--line); background: #fff; color: var(--muted); padding: 9px 12px; border-radius: 999px; cursor: pointer; font-weight: 650; }
-    .tab.active { background: var(--primary-soft); border-color: #b7e4c8; color: var(--primary); }
+    .tab.active { background: var(--primary-soft); border-color: #bcd3ff; color: var(--primary); }
     .layout { display: grid; grid-template-columns: 1fr 330px; gap: 18px; align-items: start; }
     .checklist { overflow: hidden; }
     .section-title { position: sticky; top: 0; background: rgba(255,255,255,.95); backdrop-filter: blur(8px); z-index: 2; padding: 16px 18px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; align-items: center; }
@@ -108,33 +108,23 @@
     .guide-card h3 { margin: 0 0 8px; font-size: 16px; }
     .guide-card ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.7; font-size: 14px; }
     .empty { padding: 36px 18px; text-align: center; color: var(--muted); }
-    .version-bar { margin-bottom: 16px; padding: 10px 14px; border: 1px solid #cdebd9; border-radius: 14px; background: #f4fbf7; color: #486158; font-size: 14px; font-weight: 650; }
+    .version-bar { margin-bottom: 16px; padding: 10px 14px; border: 1px solid #dbeafe; border-radius: 14px; background: #f8fbff; color: #475569; font-size: 14px; font-weight: 650; }
     .version-bar a { font-weight: 750; text-decoration: none; }
-    .resource-section { margin-top: 18px; padding: 20px; background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(244,251,247,0.96)); }
-    .resource-section h2 { margin: 0 0 8px; font-size: 18px; }
-    .resource-section p { margin: 0 0 12px; color: var(--muted); line-height: 1.7; font-size: 14px; }
-    .resource-link { display: inline-flex; align-items: center; min-height: 40px; padding: 8px 12px; border: 1px solid #b7e4c8; border-radius: 12px; background: #e8f6ef; font-weight: 750; text-decoration: none; }
     footer { color: var(--muted); font-size: 13px; line-height: 1.7; text-align: center; padding: 28px 0 0; }
     .footer-logo { width: 84px; height: auto; display: block; margin: 0 auto 10px; opacity: 0.9; }
-    .footer-content { max-width: 900px; margin: 0 auto; display: grid; gap: 14px; }
-    .footer-block { text-align: left; padding: 14px 16px; border: 1px solid #d9e7dd; border-radius: 14px; background: rgba(255,255,255,0.82); }
-    .footer-block h2 { margin: 0 0 8px; color: var(--ink); font-size: 16px; }
-    .footer-block p { margin: 0 0 8px; }
-    .footer-block p:last-child { margin-bottom: 0; }
-    .copyright { margin-top: 4px; }
     @media (max-width: 900px) { header, .layout, .guide, .upload-grid, .risk-summary { grid-template-columns: 1fr; } .toolbar { grid-template-columns: 1fr 1fr; } .toolbar button { width: 100%; } .side { position: static; } .status-row { grid-template-columns: 1fr 1fr; } .status-row textarea { grid-column: 1 / -1; } }
     @media print { body { background: #fff; } .toolbar, .tabs, .side, footer { display: none !important; } header { grid-template-columns: 1fr; } .hero, .checklist, .guide-card, .auto-check { box-shadow: none; border-color: #ddd; } .item, .result-item { break-inside: avoid; } .wrap { padding: 0; } }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="version-bar"><span id="versionCurrent">当前版本：新版</span> | <a id="legacyLinkText" href="index_old.html">查看旧版</a></div>
+    <div class="version-bar">当前版本：旧版 | <a href="index.html">返回新版</a></div>
     <header>
       <section class="hero">
-        <h1 id="heroTitle">暨南大学经济学院研究生毕业论文格式与写作规范自查工具</h1>
-        <p id="heroIntro">面向暨南大学经济学院研究生毕业论文写作规范的自查辅助工具，支持手动 checklist 与本地文件自动初检，适合在论文提交前系统核对格式、结构、实证规范、参考文献和终检事项。</p>
-        <div class="source-note" id="sourceNote">本工具基于暨南大学经济学院研究生毕业论文写作与格式规范，并结合研究生论文写作中的常见格式、结构与实证规范问题整理而成，旨在帮助同学们在论文提交前进行系统化自查。</div>
-        <div class="byline"><span id="authorLine">作者：杨杰（Jie Yang）</span><span>Contact: jieyang020618@gmail.com</span><label class="language-switch"><span id="languageLabel">Language</span><select id="languageSelect" aria-label="Language"><option value="zh">中文</option><option value="en">English</option></select></label></div>
+        <h1 id="heroTitle">暨南大学研究生毕业论文格式与写作规范自查工具</h1>
+        <p id="heroIntro">面向暨南大学研究生毕业论文写作规范的自查辅助工具，支持手动 checklist 与本地文件自动初检，适合在论文提交前系统核对格式、结构、实证规范、参考文献和终检事项。</p>
+        <div class="source-note" id="sourceNote">本工具基于暨南大学研究生毕业论文写作与格式规范，并结合研究生论文写作中的常见格式、结构与实证规范问题整理而成，旨在帮助同学们在论文提交前进行系统化自查。</div>
+        <div class="byline"><span id="authorLine">By 杨杰（Jie Yang）</span><span>Contact: jieyang020618@gmail.com</span><label class="language-switch"><span id="languageLabel">Language</span><select id="languageSelect" aria-label="Language"><option value="zh">中文</option><option value="en">English</option></select></label></div>
         <div class="disclaimer" id="disclaimer">本工具为自查辅助工具，不是暨南大学官方审核系统；检测结果仅供修改参考，最终仍需以学校/学院正式论文规范和导师意见为准。</div>
       </section>
       <aside class="stats panel" aria-label="总体进度"><div class="stat-card"><div class="num"><span id="overallPct">0</span>%</div><div class="label" id="overallLabel">总体通过率（不含“不适用”）</div><div class="progress"><span id="overallBar"></span></div></div><div class="stat-card"><div class="num"><span id="fixCount">0</span></div><div class="label" id="fixCountLabel">仍需修改项</div></div></aside>
@@ -175,30 +165,13 @@
     </section>
     <div class="toolbar" role="search"><input id="searchInput" type="search" placeholder="搜索：如 页码 / 三线表 / 聚类标准误 / 摘要" /><select id="statusFilter" title="按状态筛选"><option value="all">全部状态</option><option value="ok">已通过</option><option value="fix">需修改</option><option value="na">不适用</option><option value="blank">未检查</option></select><select id="priorityFilter" title="按风险等级筛选"><option value="all">全部风险</option><option value="高">高风险</option><option value="中">中风险</option><option value="普通">普通</option></select><button class="primary" id="exportBtn">导出报告</button><button id="printBtn">打印 / 保存 PDF</button><button class="danger" id="resetBtn">清空记录</button></div>
     <nav id="tabs" class="tabs" aria-label="核查板块"></nav>
-    <main class="layout"><section class="checklist" aria-label="手动自查清单"><div class="section-title"><h2 id="currentSectionTitle">全部核查项</h2><span class="meta"><span id="shownCount">0</span> 项显示</span></div><div id="items"></div></section><aside class="side"><section class="panel"><h3 id="sectionProgressTitle">板块完成度</h3><ul id="sectionProgress" class="mini-list"></ul></section><section class="panel"><h3 id="priorityTitle">定稿前优先看这几项</h3><ul id="priorityList" class="mini-list"><li><span>目录、页码、标题</span><b>必须同步</b></li><li><span>图表编号与图表注释</span><b>不能断号</b></li><li><span>数据来源与样本筛选</span><b>要可复现</b></li><li><span>固定效应与聚类标准误</span><b>表注标明</b></li><li><span>正文引用与参考文献</span><b>一一对应</b></li></ul></section><section class="panel"><h3 id="usageTitle">使用建议</h3><p id="usageText" style="color:var(--muted);line-height:1.75;margin:0;font-size:14px;">第一次检查先把明显问题标为“需修改”；修改后再逐项改成“已通过”。导出的 Markdown 报告可作为论文修改记录。自动检查结果仅作为建议状态，不会覆盖这里的人工勾选。</p></section></aside></main>
+    <main class="layout"><section class="checklist" aria-label="手动自查清单"><div class="section-title"><h2 id="currentSectionTitle">全部核查项</h2><span class="meta"><span id="shownCount">0</span> 项显示</span></div><div id="items"></div></section><aside class="side"><section class="panel"><h3>板块完成度</h3><ul id="sectionProgress" class="mini-list"></ul></section><section class="panel"><h3>定稿前优先看这几项</h3><ul class="mini-list"><li><span>目录、页码、标题</span><b>必须同步</b></li><li><span>图表编号与图表注释</span><b>不能断号</b></li><li><span>数据来源与样本筛选</span><b>要可复现</b></li><li><span>固定效应与聚类标准误</span><b>表注标明</b></li><li><span>正文引用与参考文献</span><b>一一对应</b></li></ul></section><section class="panel"><h3>使用建议</h3><p style="color:var(--muted);line-height:1.75;margin:0;font-size:14px;">第一次检查先把明显问题标为“需修改”；修改后再逐项改成“已通过”。导出的 Markdown 报告可作为论文修改记录。自动检查结果仅作为建议状态，不会覆盖这里的人工勾选。</p></section></aside></main>
     <section id="guides" class="guide" aria-label="写作提示"></section>
-    <section class="resource-section" aria-label="资料下载与参考资料">
-      <h2 id="resourceTitle">资料下载 / 参考资料</h2>
-      <p id="resourceIntro">以下资料整理自论文写作、答辩准备与数据搜索相关经验。感谢裴天成师兄提供相关资料，仅供学习和自查参考。</p>
-      <a id="resourceLinkText" class="resource-link" href="resources/thesis_writing_and_defense_notes.pdf" target="_blank" rel="noopener">论文写作、答辩与数据搜索经验资料（PDF）</a>
-    </section>
     <footer>
-      <div class="footer-content">
-        <img class="footer-logo" src="jnu_logo.png" alt="Jinan University Logo" />
-        <div class="footer-block" aria-label="感谢">
-          <h2 id="ackTitle">感谢</h2>
-          <p id="ackText1">本工具的内容整理主要参考了往届师兄们积累的论文写作与格式检查资料，特别感谢裴天成师兄、林星光师兄等在相关 checklist、写作经验与资料整理方面所做的系统性工作，为本工具的构建提供了重要基础。</p>
-          <p id="ackText2">同时，感谢欧阳老师在研究生论文写作规范与学术训练方面的指导与支持。</p>
-          <p id="ackText3">在上述资料基础上，作者杨杰对相关内容进行了整合、结构化梳理与网页化实现，并负责本工具的设计、功能开发与后续维护。</p>
-        </div>
-        <div class="footer-block" aria-label="适用范围说明">
-          <h2 id="scopeTitle">适用范围说明</h2>
-          <p id="scopeText">说明：本工具主要面向暨南大学经济学院研究生毕业论文写作与格式规范的自查辅助使用。不同学院或专业的具体要求可能存在差异，请以所在学院的正式规范、学校最新文件和导师意见为准。</p>
-        </div>
-        <div id="footerDesc">面向暨南大学经济学院研究生毕业论文写作规范的自查辅助工具。This tool is designed as a self-check aid for academic writing and formatting.</div>
-        <div id="footerAuthor">作者：杨杰（Jie Yang）｜Contact: jieyang020618@gmail.com</div>
-        <div class="copyright">© 2026 杨杰 Jie Yang. All rights reserved.</div>
-      </div>
+      <img class="footer-logo" src="jnu_logo.png" alt="Jinan University Logo" />
+      <div id="footerDesc">面向暨南大学研究生毕业论文写作规范的自查辅助工具。This tool is designed as a self-check aid for academic writing and formatting.</div>
+      <div>工具设计、内容整理与维护：杨杰（Jie Yang）｜Contact: jieyang020618@gmail.com</div>
+      <div>© 2026 杨杰 Jie Yang. All rights reserved.</div>
     </footer>
   </div>
 <script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
@@ -532,101 +505,21 @@ const GUIDES = [
     ]
   }
 ];
-const GUIDE_I18N_EN = {
-  '摘要': {
-    title: 'Abstract',
-    points: [
-      'Organize it around background and motivation, core method, main findings, and theoretical or practical implications.',
-      'Keep the abstract, conclusion, and latest regression results consistent.',
-      'Avoid overclaiming that no literature exists; use cautious wording such as extending related literature.',
-      'Keep the length controlled, usually around two thirds of a page if possible.'
-    ]
-  },
-  '目录': {
-    title: 'Table of Contents',
-    points: [
-      'Regenerate the table of contents before final submission so headings and page numbers match the main text.',
-      'Usually keep first- and second-level headings only.',
-      'Avoid splitting large chapters into too many small sections at the same level.'
-    ]
-  },
-  '绪论 / 引言': {
-    title: 'Introduction',
-    points: [
-      'Tie the background closely to the research question and explain why it matters.',
-      'You may begin from a policy or real-world context before moving to the academic gap.',
-      'Separate theoretical and practical significance when useful, but avoid empty slogans.'
-    ]
-  },
-  '文献综述': {
-    title: 'Literature Review',
-    points: [
-      'Organize by themes, variables, mechanisms, or methods rather than listing authors one by one.',
-      'End with a clear review of existing contributions, limitations, and your entry point.',
-      'Handle Chinese and English literature as connected evidence rather than separate piles of citations.'
-    ]
-  },
-  '理论基础与研究假设': {
-    title: 'Theory and Hypotheses',
-    points: [
-      'Every hypothesis should be supported by theory or literature.',
-      'If causal identification is limited, keep causal wording cautious.',
-      'Hypothesis development should derive testable propositions from mechanisms, not repeat the literature review.'
-    ]
-  },
-  '变量与模型设定': {
-    title: 'Variables and Model',
-    points: [
-      'State data sources, sample period, screening criteria, and variable construction clearly.',
-      'Self-constructed indicators or proxies should have literature or theoretical support.',
-      'Descriptive statistics should be interpreted, not just displayed in a table.'
-    ]
-  },
-  '实证分析': {
-    title: 'Empirical Analysis',
-    points: [
-      'Specify lag structures, fixed effects, and clustered standard errors in the baseline model.',
-      'Explain the economic meaning of key coefficients rather than only significance.',
-      'State the basis for heterogeneity groups and align mechanism tests with the theory.',
-      'Robustness checks may include alternative variables, samples, models, or fixed effects.'
-    ]
-  },
-  '结论与政策建议': {
-    title: 'Conclusion and Policy Suggestions',
-    points: [
-      'Summarize the findings of the whole paper instead of copying the abstract or tables.',
-      'Policy suggestions should follow from empirical findings.',
-      'Keep the section concise and clearly structured, often around one to two pages.'
-    ]
-  },
-  '参考文献': {
-    title: 'References',
-    points: [
-      'Use one reference style consistently, such as APA or GB/T 7714.',
-      'Make sure in-text citations and the reference list match one to one.',
-      'Remove duplicate, invalid, or untraceable references.'
-    ]
-  }
-};
 const STORAGE_KEY = 'paper-format-checker-v1';
-const LANG_KEY = 'paper-format-checker-lang';
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
 let activeSection = '全部';
 let state = loadState();
 let autoReport = null;
 let autoFilter = 'all';
-let currentLang = loadLanguage();
+let currentLang = 'zh';
 
 const I18N = {
   zh: {
-    pageTitle: '暨南大学经济学院研究生毕业论文格式与写作规范自查工具',
-    heroIntro: '面向暨南大学经济学院研究生毕业论文写作规范的自查辅助工具，支持手动 checklist 与本地文件自动初检，适合在论文提交前系统核对格式、结构、实证规范、参考文献和终检事项。',
-    sourceNote: '本工具基于暨南大学经济学院研究生毕业论文写作与格式规范，并结合研究生论文写作中的常见格式、结构与实证规范问题整理而成，旨在帮助同学们在论文提交前进行系统化自查。',
+    pageTitle: '暨南大学研究生毕业论文格式与写作规范自查工具',
+    heroIntro: '面向暨南大学研究生毕业论文写作规范的自查辅助工具，支持手动 checklist 与本地文件自动初检，适合在论文提交前系统核对格式、结构、实证规范、参考文献和终检事项。',
+    sourceNote: '本工具基于暨南大学研究生毕业论文写作与格式规范，并结合研究生论文写作中的常见格式、结构与实证规范问题整理而成，旨在帮助同学们在论文提交前进行系统化自查。',
     disclaimer: '本工具为自查辅助工具，不是暨南大学官方审核系统；检测结果仅供修改参考，最终仍需以学校/学院正式论文规范和导师意见为准。',
-    authorLine: '作者：杨杰（Jie Yang）',
-    language: '语言 / Language',
-    versionCurrent: '当前版本：新版',
-    legacyLinkText: '查看旧版',
+    language: 'Language',
     overallLabel: '总体通过率（不含“不适用”）',
     fixCountLabel: '仍需修改项',
     autoOverallLabel: '自动初检通过率（规则识别）',
@@ -662,17 +555,7 @@ const I18N = {
     autoDonePrefix: '已完成本地自动初检：',
     autoDoneSuffix: '。检测结果为规则提示，不代表正式审核结论。',
     autoErrorFallback: '自动检查过程中出现异常，请更换文件格式后重试。',
-    resourceTitle: '资料下载 / 参考资料',
-    resourceIntro: '以下资料整理自论文写作、答辩准备与数据搜索相关经验。感谢裴天成师兄提供相关资料，仅供学习和自查参考。',
-    resourceLinkText: '论文写作、答辩与数据搜索经验资料（PDF）',
-    ackTitle: '感谢',
-    ackText1: '本工具的内容整理主要参考了往届师兄们积累的论文写作与格式检查资料，特别感谢裴天成师兄、林星光师兄等在相关 checklist、写作经验与资料整理方面所做的系统性工作，为本工具的构建提供了重要基础。',
-    ackText2: '同时，感谢欧阳老师在研究生论文写作规范与学术训练方面的指导与支持。',
-    ackText3: '在上述资料基础上，作者杨杰对相关内容进行了整合、结构化梳理与网页化实现，并负责本工具的设计、功能开发与后续维护。',
-    scopeTitle: '适用范围说明',
-    scopeText: '说明：本工具主要面向暨南大学经济学院研究生毕业论文写作与格式规范的自查辅助使用。不同学院或专业的具体要求可能存在差异，请以所在学院的正式规范、学校最新文件和导师意见为准。',
-    footerDesc: '面向暨南大学经济学院研究生毕业论文写作规范的自查辅助工具。This tool is designed as a self-check aid for academic writing and formatting.',
-    footerAuthor: '作者：杨杰（Jie Yang）｜Contact: jieyang020618@gmail.com',
+    footerDesc: '面向暨南大学研究生毕业论文写作规范的自查辅助工具。This tool is designed as a self-check aid for academic writing and formatting.',
     summaryLabels: ['通过或低风险项', '风险项', '需人工确认项', '检查项总数'],
     autoOverviewTitle: '自动初检总体结论',
     autoOverviewIntro: '系统已根据可提取文本进行规则化初检。以下通过率和修改项仅供论文修改参考，不代表正式审核结论。',
@@ -690,27 +573,14 @@ const I18N = {
     resultSuggestion: '修改建议：',
     warningPrefix: '提示：',
     sectionProgressTitle: '板块完成度',
-    priorityTitle: '定稿前优先看这几项',
-    priorityItems: [
-      ['目录、页码、标题', '必须同步'],
-      ['图表编号与图表注释', '不能断号'],
-      ['数据来源与样本筛选', '要可复现'],
-      ['固定效应与聚类标准误', '表注标明'],
-      ['正文引用与参考文献', '一一对应']
-    ],
-    usageTitle: '使用建议',
-    usageText: '第一次检查先把明显问题标为“需修改”；修改后再逐项改成“已通过”。导出的 Markdown 报告可作为论文修改记录。自动检查结果仅作为建议状态，不会覆盖这里的人工勾选。',
     sections: {}
   },
   en: {
-    pageTitle: 'JNU College of Economics Graduate Thesis Format and Writing Self-Check Tool',
-    heroIntro: 'A self-check aid for graduate thesis writing and formatting in the College of Economics, Jinan University, with a manual checklist and local file pre-checks before submission.',
-    sourceNote: 'This tool is based on graduate thesis writing and formatting requirements for the College of Economics, Jinan University, and summarizes common formatting, structure, and empirical-writing risks for pre-submission self-checks.',
+    pageTitle: 'Jinan University Graduate Thesis Format and Writing Self-Check Tool',
+    heroIntro: 'A self-check aid for Jinan University graduate thesis writing standards, with a manual checklist and local file pre-checks before submission.',
+    sourceNote: 'This tool is based on Jinan University graduate thesis writing and formatting standards, and summarizes common formatting, structure, and empirical-writing risks for pre-submission self-checks.',
     disclaimer: 'This is a self-check aid, not an official university review system. Results are for revision reference only; final requirements should follow official school/college rules and supervisor guidance.',
-    authorLine: 'Author: Yang Jie (Jie Yang)',
     language: 'Language',
-    versionCurrent: 'Current version: New',
-    legacyLinkText: 'View legacy version',
     overallLabel: 'Overall pass rate (excluding N/A)',
     fixCountLabel: 'Items needing revision',
     autoOverallLabel: 'Auto-check pass rate (rule-based)',
@@ -746,17 +616,7 @@ const I18N = {
     autoDonePrefix: 'Local initial auto check completed: ',
     autoDoneSuffix: '. Results are rule-based prompts, not official review conclusions.',
     autoErrorFallback: 'An error occurred during auto check. Please try another file format.',
-    resourceTitle: 'Downloads / Reference Materials',
-    resourceIntro: 'The following material summarizes experience related to thesis writing, defense preparation, and data search. Thanks to Pei Tiancheng for providing the related materials. It is provided for learning and self-check reference only.',
-    resourceLinkText: 'Thesis writing, defense, and data search notes (PDF)',
-    ackTitle: 'Thanks',
-    ackText1: 'The content of this tool mainly draws on thesis writing and format-checking materials accumulated by previous senior students. Special thanks go to Pei Tiancheng, Lin Xingguang, and others for their systematic work on related checklists, writing experience, and reference materials, which provided an important foundation for this tool.',
-    ackText2: 'Sincere thanks are also extended to Professor Ouyang for guidance and support in graduate thesis writing standards and academic training.',
-    ackText3: 'On the basis of these materials, Yang Jie integrated and structured the relevant content, implemented it as a web-based tool, and is responsible for the tool design, feature development, and ongoing maintenance.',
-    scopeTitle: 'Scope Note',
-    scopeText: 'Note: This tool is mainly intended as a self-check aid for graduate thesis writing and formatting in the College of Economics, Jinan University. Requirements may differ across colleges or programs, so please follow your college\'s official requirements, the latest university documents, and your supervisor\'s advice.',
-    footerDesc: 'A self-check aid for graduate thesis writing and formatting in the College of Economics, Jinan University. This tool is designed as a self-check aid for academic writing and formatting.',
-    footerAuthor: 'Author: Yang Jie (Jie Yang) | Contact: jieyang020618@gmail.com',
+    footerDesc: 'A self-check aid for Jinan University graduate thesis writing standards. This tool is designed as a self-check aid for academic writing and formatting.',
     summaryLabels: ['Passed or low-risk items', 'Risk items', 'Items needing manual review', 'Total checks'],
     autoOverviewTitle: 'Auto-Check Overall Summary',
     autoOverviewIntro: 'The system has run a rule-based initial check on extractable text. The pass rate and revision items are for reference only and are not official review conclusions.',
@@ -774,16 +634,6 @@ const I18N = {
     resultSuggestion: 'Suggestion: ',
     warningPrefix: 'Note: ',
     sectionProgressTitle: 'Section Progress',
-    priorityTitle: 'Before final submission',
-    priorityItems: [
-      ['Table of contents, page numbers, headings', 'Keep synced'],
-      ['Figure/table numbers and notes', 'No gaps'],
-      ['Data source and sample screening', 'Reproducible'],
-      ['Fixed effects and clustered SEs', 'State in notes'],
-      ['In-text citations and references', 'Match one-to-one']
-    ],
-    usageTitle: 'Suggested Workflow',
-    usageText: 'On the first pass, mark obvious issues as “Needs revision”; after revising, update them to “Passed” item by item. The exported Markdown report can be used as a revision record. Auto-check results are advisory and do not overwrite manual checklist choices.',
     sections: {
       '全文格式规范': 'Full-Text Format',
       '参考文献 / 与引用规范': 'References / Citation',
@@ -798,17 +648,6 @@ function loadState() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch (e) { return {}; }
 }
 function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-function loadLanguage() {
-  try {
-    const stored = localStorage.getItem(LANG_KEY);
-    return stored === 'en' || stored === 'zh' ? stored : 'zh';
-  } catch (e) {
-    return 'zh';
-  }
-}
-function saveLanguage() {
-  try { localStorage.setItem(LANG_KEY, currentLang); } catch (e) {}
-}
 function itemState(id) { return state[id] || {status:'', note:''}; }
 function setStatus(id, status) { state[id] = {...itemState(id), status}; saveState(); render(); }
 function setNote(id, note) { state[id] = {...itemState(id), note}; saveState(); updateStats(); }
@@ -836,9 +675,6 @@ function applyStaticLanguage() {
     heroIntro: 'heroIntro',
     sourceNote: 'sourceNote',
     disclaimer: 'disclaimer',
-    authorLine: 'authorLine',
-    versionCurrent: 'versionCurrent',
-    legacyLinkText: 'legacyLinkText',
     languageLabel: 'language',
     overallLabel: 'overallLabel',
     fixCountLabel: 'fixCountLabel',
@@ -856,20 +692,6 @@ function applyStaticLanguage() {
     exportBtn: 'exportButton',
     printBtn: 'printButton',
     resetBtn: 'resetButton',
-    resourceTitle: 'resourceTitle',
-    resourceIntro: 'resourceIntro',
-    resourceLinkText: 'resourceLinkText',
-    ackTitle: 'ackTitle',
-    ackText1: 'ackText1',
-    ackText2: 'ackText2',
-    ackText3: 'ackText3',
-    scopeTitle: 'scopeTitle',
-    scopeText: 'scopeText',
-    sectionProgressTitle: 'sectionProgressTitle',
-    priorityTitle: 'priorityTitle',
-    usageTitle: 'usageTitle',
-    usageText: 'usageText',
-    footerAuthor: 'footerAuthor',
     footerDesc: 'footerDesc'
   };
   document.title = t('pageTitle');
@@ -894,10 +716,8 @@ function applyStaticLanguage() {
   priorityFilter.options[3].textContent = currentLang === 'en' ? 'General' : '普通';
   const autoMessage = document.getElementById('autoMessage');
   if (!autoReport) autoMessage.textContent = t('autoInitial');
-  const priorityList = document.getElementById('priorityList');
-  if (priorityList) {
-    priorityList.innerHTML = I18N[currentLang].priorityItems.map(([label, value]) => `<li><span>${escapeHTML(label)}</span><b>${escapeHTML(value)}</b></li>`).join('');
-  }
+  const sectionProgressTitle = document.querySelector('.side .panel h3');
+  if (sectionProgressTitle) sectionProgressTitle.textContent = t('sectionProgressTitle');
 }
 
 function getVisibleItems() {
@@ -940,12 +760,7 @@ function renderItems() {
   document.querySelectorAll('textarea[data-note]').forEach(area => area.addEventListener('input', () => setNote(area.dataset.note, area.value)));
 }
 function renderGuides() {
-  document.getElementById('guides').innerHTML = GUIDES.map(g => {
-    const translated = currentLang === 'en' ? GUIDE_I18N_EN[g.title] : null;
-    const title = translated ? translated.title : g.title;
-    const points = translated ? translated.points : g.points;
-    return `<article class="guide-card"><h3>${escapeHTML(title)}</h3><ul>${points.map(p => `<li>${escapeHTML(p)}</li>`).join('')}</ul></article>`;
-  }).join('');
+  document.getElementById('guides').innerHTML = GUIDES.map(g => `<article class="guide-card"><h3>${escapeHTML(g.title)}</h3><ul>${g.points.map(p => `<li>${escapeHTML(p)}</li>`).join('')}</ul></article>`).join('');
 }
 function getAutoMetrics(results = autoReport ? autoReport.results : []) {
   const applicable = results.filter(r => r.status !== 'na');
@@ -1261,7 +1076,6 @@ document.getElementById('autoExportBtn').addEventListener('click', exportMarkdow
 document.getElementById('autoPrintBtn').addEventListener('click', () => window.print());
 document.getElementById('languageSelect').addEventListener('change', event => {
   currentLang = event.target.value;
-  saveLanguage();
   render();
   renderAutoCheckResults();
 });
